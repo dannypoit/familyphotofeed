@@ -55,7 +55,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use popper
-gem 'popper_js', '~> 1.11.1'
+gem 'popper_js', '~> 1.14.5'
 
 # Use bootstrap for frontend design
 gem 'bootstrap', '~> 4.1.3'
