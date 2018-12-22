@@ -11,6 +11,13 @@
   <body>
     <%= link_to 'familyphotofeed', root_path, class: 'h1' %>
 
+        <% if current_user %>
+          Hello, <%= current_user.email %>
+          <%= link_to 'Logout',
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
     <%= yield %>
 
     <!-- <h2>Coming soon!</h2> -->
