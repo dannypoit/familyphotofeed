@@ -11,19 +11,23 @@
   <body>
     <%= link_to 'familyphotofeed', root_path, class: 'h1' %>
 
-        <% if current_user %>
-          Hello, <%= current_user.email %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-        <% end %>
+    <br/>
 
-        <% if notice.present? %>
-          <p class="notice"><%= notice %></p>
-        <% end %>
+    <% if current_user %>
+      Hello, <%= current_user.name %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %>
+    <% end %>
 
-        <% if alert.present? %>
-          <p class="alert"><%= alert %></p>
-        <% end %>
-                    
+    <% if notice.present? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if alert.present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
 
     <!-- <h2>Coming soon!</h2> -->
