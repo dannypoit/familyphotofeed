@@ -15,13 +15,19 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  describe "posts#new action" do
+  describe "posts#create action" do
     it "should successfully create a new post in our database" do
       post :create, params: { post: { caption: 'Test' } }
       expect(response).to redirect_to root_path
 
       post = Post.last
       expect(post.caption).to eq("Test")
+    end
+
+    it "should properly deal with validation errors" do
+      post :create, params: { post: { caption: '' } }
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(Post.count).to eq 0
     end
   end
 end
