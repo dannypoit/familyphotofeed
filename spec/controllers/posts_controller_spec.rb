@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+  describe "posts#edit action" do
+    it "should successfully show the edit form if the post is found" do
+      post = FactoryBot.create(:post)
+      get :edit, params: { id: post.id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should return a 404 error message if the post is not found" do
+      get :edit, params: { id: 'WHATEVS' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
   describe "posts#show action" do
     it "should successfully show the page if the post is found" do
       post = FactoryBot.create(:post)
