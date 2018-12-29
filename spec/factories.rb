@@ -6,4 +6,9 @@ FactoryBot.define do
     password "secretPassword"
     password_confirmation "secretPassword"
   end
+
+  factory :post do
+    caption "hello"
+    association :user
+  end
 end
