@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Use Rspec for testing
   gem 'rspec-rails', '~> 3.5'
+  # Use Factory Bot to prevent our specs from being cluttered
+  gem 'factory_bot_rails'
 end
 
 group :development do
