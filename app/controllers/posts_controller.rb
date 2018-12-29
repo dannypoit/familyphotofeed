@@ -12,9 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find_by_id(params[:id])
-    if @post.nil?
-      render plain: 'Not found', status: :not_found
-    end
+    return render_not_found if @post.blank?
   end
 
   # GET /posts/new
@@ -24,6 +22,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find_by_id(params[:id])
+    return render_not_found if @post.blank?
   end
 
   # POST /posts
@@ -80,5 +80,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:caption)
+    end
+
+    def render_not_found
+      render plain: 'Not found', status: :not_found
     end
 end
