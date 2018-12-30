@@ -1,5 +1,9 @@
 <h1>Upload</h1>
 
-<%= render 'form', post: @post %>
+<%= simple_form_for @post do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :caption %>
+  <%= f.submit 'Post' %>
+<% end %>
 
 <%= link_to 'Back', posts_path %>

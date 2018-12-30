@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:caption)
+      params.require(:post).permit(:photo, :caption)
     end
 
     def render_not_found(status=:not_found)

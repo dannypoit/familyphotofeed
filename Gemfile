@@ -72,3 +72,6 @@ gem 'simple_form'
 
 # Use devise for user management
 gem 'devise'
+
+# Use CarrierWave for image uploading
+gem 'carrierwave', '~> 1.0'
