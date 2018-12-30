@@ -18,3 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore local uploaded photos
+/public/uploads/post/photo/*
+/public/uploads/tmp/*

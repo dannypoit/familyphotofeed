@@ -78,3 +78,6 @@ gem 'carrierwave', '~> 1.0'
 
 # Use Figaro to hide sensitive information
 gem 'figaro'
+
+# Use fog to allow CarrierWave to communicate with Amazon S3
+gem 'fog-aws'
