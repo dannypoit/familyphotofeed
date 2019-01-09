@@ -1,16 +1,16 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Asap|Assistant|Comfortaa:400,700|Jaldi|Jua|Karla|Mandali|Mitr|Montserrat:400,600|NTR|Nunito:400,600|Source+Sans+Pro:400,600|Ubuntu|Varela+Round');
 
 body {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'NTR', verdana, arial, helvetica, sans-serif;
+  // font-size: 13px;
   line-height: 18px;
   background-color: #fafafa;
   margin-bottom: 30px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  // font-size: 13px;
   line-height: 18px;
   margin: 33px;
 }
@@ -18,19 +18,14 @@ p, ol, ul, td {
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  // font-size: 11px;
 }
 
 a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
+  color: #125688;
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    text-decoration: none;
   }
 }
 
@@ -72,7 +67,7 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    // font-size: 12px;
     margin: -7px;
     margin-bottom: 0;
     background-color: #c00;
@@ -80,7 +75,7 @@ div {
   }
 
   ul li {
-    font-size: 12px;
+    // font-size: 12px;
     list-style: square;
   }
 }
@@ -91,4 +86,23 @@ label {
 
 .top-nav {
   background-color: white;
+  border-bottom-color: #edeeee;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  height: 70px;
+  padding-top: 15px;
+}
+
+.brand {
+  font-family: 'Comfortaa', verdana, sans-serif;
+
+  a {
+  color: #125688;
+  font-size: 36px;
+  // font-weight: 600;
+  }
+}
+
+.brand-green a {
+  color: #128856;
 }
