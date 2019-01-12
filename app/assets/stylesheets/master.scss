@@ -1,9 +1,9 @@
 @import 'bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
 body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   // line-height: 18px;
   background-color: #fafafa;
   margin-bottom: 30px;
@@ -94,7 +94,7 @@ label {
 }
 
 .brand {
-  font-family: 'Comfortaa', verdana, sans-serif;
+  font-family: 'Comfortaa', verdana, arial, helvetica, sans-serif;
 
   a {
   color: #125688;
@@ -105,4 +105,22 @@ label {
 
 .brand-green a {
   color: #128856;
+}
+
+.add {
+  margin-top: 10px;
+
+  a {
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 15px;
+  }
+}
+
+.emphasis {
+  font-weight: 500;
+}
+
+.post-header {
+  padding: 10px;
 }

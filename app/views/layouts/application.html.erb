@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>familyphotofeed</title>
+    <title>Family Photo Feed</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,22 +16,23 @@
     <div class="top-nav">
       <div class="col-10 offset-1">
         <div class="row">
-          <div class="col-4 brand">
+          <div class="col-4 brand float-left">
             <%= link_to 'family', root_path, class: 'h1' %>
             <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
             <%= link_to 'feed', root_path, class: 'h1' %>
           </div>
-          <div class="col-4 add">
+          <div class="col-4 add text-center">
             <% if current_user %>
-              Hello, <%= current_user.email %>.
+              Hello, <%= current_user.name %>
             <% end %>
           </div>
-          <div class="col-4 add">
+          <div class="col-4 add text-right">
             <% if current_user %>
+              <%= link_to 'Upload', root_path, method: :delete %>
+              <%= link_to 'Profile', root_path, method: :delete %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
             <% else %>
-              <%= link_to "Sign In", new_user_session_path %>
-              <%= link_to "Sign Up", new_user_registration_path %>
+              <%= link_to 'Login', new_user_session_path %>
             <% end %>
           </div>
         </div>
@@ -40,10 +41,6 @@
     </div>
 
     <br/>
-
-    <p>For the first time in forever, I feel fabulous!</p>
-
-    <p>Uploaded by: Danny</p>
 
     <% if current_user %>
     <% else %>
