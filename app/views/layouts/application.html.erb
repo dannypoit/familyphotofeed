@@ -23,12 +23,12 @@
           </div>
           <div class="col-4 add text-center">
             <% if current_user %>
-              Hello, <%= current_user.name %>
+              Hello, <%= current_user.name %>!
             <% end %>
           </div>
           <div class="col-4 add text-right">
             <% if current_user %>
-              <%= link_to 'Upload', root_path, method: :delete %>
+              <%= link_to 'Upload', new_post_path %>
               <%= link_to 'Profile', root_path, method: :delete %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
             <% else %>
