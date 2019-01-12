@@ -138,3 +138,34 @@ label {
   // font-size: 18px;
   margin: 20px;
 }
+
+.card.form {
+  padding: 20px;
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.green-btn {
+  background-color: #128856;
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+}
+
+.blue-btn {
+  background-color: #125688;
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+}

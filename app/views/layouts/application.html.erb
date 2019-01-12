@@ -42,11 +42,6 @@
 
     <br/>
 
-    <% if current_user %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
-
     <% if notice.present? %>
       <p class="notice"><%= notice %></p>
     <% end %>
