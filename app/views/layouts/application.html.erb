@@ -42,13 +42,17 @@
 
     <br/>
 
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
+    <div class="col-6 offset-3 text-center">
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
 
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <div class="clear-fix"></div>
+    </div>
 
     <%= yield %>
 
