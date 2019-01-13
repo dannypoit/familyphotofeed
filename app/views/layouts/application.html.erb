@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>familyphotofeed</title>
+    <title>Family Photo Feed</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,32 +9,54 @@
   </head>
 
   <body>
-    <h5>Coming soon!</h5>
+    <!-- <h5>Coming soon!</h5> -->
 
-    <!--
+    <!-- -->
 
-    <%= link_to 'familyphotofeed', root_path, class: 'h1' %>
+    <div class="top-nav">
+      <div class="col-10 offset-1">
+        <div class="row">
+          <div class="col-4 brand float-left">
+            <%= link_to 'family', root_path, class: 'h1' %>
+            <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
+            <%= link_to 'feed', root_path, class: 'h1' %>
+          </div>
+          <div class="col-4 add text-center">
+            <% if current_user %>
+              Hello, <%= current_user.name %>!
+            <% end %>
+          </div>
+          <div class="col-4 add text-right">
+            <% if current_user %>
+              <%= link_to 'Upload', new_post_path %>
+              <%= link_to 'Profile', root_path, method: :delete %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Login', new_user_session_path %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <br class="clear-fix" />
+    </div>
 
     <br/>
 
-    <% if current_user %>
-      Hello, <%= current_user.name %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
+    <div class="col-6 offset-3 text-center">
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
 
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+      <div class="clear-fix"></div>
+    </div>
 
     <%= yield %>
 
-    -->
+    <!-- -->
 
   </body>
 </html>

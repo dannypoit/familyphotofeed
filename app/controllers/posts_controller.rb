@@ -50,11 +50,8 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:photo, :caption)
-    end
 
-    def render_not_found(status=:not_found)
-      render plain: '#{status.to_s.titleize}', status: status
-    end
+  def post_params
+    params.require(:post).permit(:photo, :caption)
+  end
 end
