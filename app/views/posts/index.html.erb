@@ -10,9 +10,12 @@
       </div>
     </div>
       <%= image_tag post.photo %>
-      <%= link_to 'Show', post %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="post-actions text-right">
+        <% if current_user && current_user == post.user %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+        <% end %>
+        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
   </div>
   <% end %>
 </div>
