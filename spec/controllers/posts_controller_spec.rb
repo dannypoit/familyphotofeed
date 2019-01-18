@@ -2,10 +2,20 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   describe "posts#index action" do
-    it "should successfully show the page" do
+    it "should successfully show the page if a user is logged in" do
+      user = FactoryBot.create(:user)
+      sign_in user
+
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    # note sure why this isn't working -- need to work on later
+    #
+    # it "should default to the login page if a user is not logged in" do
+    #   get :index
+    #   expect(get: "/").to route_to(controller: 'devise/sessions', action: 'new')
+    # end
   end
 
   describe "posts#show action" do
