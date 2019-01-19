@@ -26,6 +26,7 @@ a {
 
   &:hover {
     text-decoration: none;
+    color: #125688;
   }
 }
 
@@ -95,16 +96,19 @@ label {
 
 .brand {
   font-family: 'Comfortaa', verdana, arial, helvetica, sans-serif;
+  color: #125688;
 
   a {
-  color: #125688;
   font-size: 36px;
   // font-weight: 600;
   }
 }
 
-.brand-green a {
+.brand-green {
   color: #128856;
+  a {
+    color: #128856;
+  }
 }
 
 .add {
@@ -154,7 +158,7 @@ input {
 
 .green-btn {
   background-color: #128856;
-  width: 100%;
+  width: 50%;
   border: none;
   font-size: 24px;
   color: white;
@@ -163,7 +167,7 @@ input {
 
 .blue-btn {
   background-color: #125688;
-  width: 100%;
+  width: 50%;
   border: none;
   font-size: 24px;
   color: white;
@@ -189,4 +193,12 @@ input {
 .comment_handle {
   color: #125688;
   font-weight: 500;
+}
+
+.login {
+  padding: 100px 0;
+}
+
+.login-logo {
+  text-align: center;
 }

@@ -12,35 +12,32 @@
     <!-- <h5>Coming soon!</h5> -->
 
     <!-- -->
-
-    <div class="top-nav">
-      <div class="col-10 offset-1">
-        <div class="row">
-          <div class="col-4 brand float-left">
-            <%= link_to 'family', root_path, class: 'h1' %>
-            <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
-            <%= link_to 'feed', root_path, class: 'h1' %>
-          </div>
-          <div class="col-4 add text-center">
-            <% if current_user %>
+    <% if current_user %>
+      <div class="top-nav">
+        <div class="col-10 offset-1">
+          <div class="row">
+            <div class="col-4 brand float-left">
+              <%= link_to 'family', root_path, class: 'h1' %>
+              <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
+              <%= link_to 'feed', root_path, class: 'h1' %>
+            </div>
+            <div class="col-4 add text-center">
               Hello, <%= current_user.name %>!
-            <% end %>
-          </div>
-          <div class="col-4 add text-right">
-            <% if current_user %>
-              <%= link_to 'Upload', new_post_path %>
-              <%= link_to 'Profile', root_path %>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-            <% end %>
+              </div>
+            <div class="col-4 add text-right">
+                <%= link_to 'Upload', new_post_path %>
+                <%= link_to 'Profile', root_path %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            </div>
           </div>
         </div>
+        <br class="clear-fix" />
       </div>
-      <br class="clear-fix" />
-    </div>
+    <% end %>
 
     <br/>
 
-    <div class="col-6 offset-3 text-center">
+    <!-- <div class="col-6 offset-3 text-center">
       <% if notice.present? %>
         <p class="alert alert-info"><%= notice %></p>
       <% end %>
@@ -50,7 +47,7 @@
       <% end %>
 
       <div class="clear-fix"></div>
-    </div>
+    </div> -->
 
     <%= yield %>
 
