@@ -179,6 +179,8 @@ input {
 
 .comments {
   padding: 20px;
+  position: absolute;
+  bottom: 0;
 }
 
 .comment {
@@ -200,5 +202,9 @@ input {
 }
 
 img {
-  max-height: 90%;
+  max-height: 500px;
+}
+
+.post-card {
+  position: relative;
 }

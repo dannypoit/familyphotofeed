@@ -1,9 +1,9 @@
 <div class="col-10 offset-1 card">
   <div class="row">
-    <div class="col-8">
+    <div class="col">
       <%= image_tag @post.photo %>
     </div>
-    <div class="col-4">
+    <div class="col post-card">
       <div class="post-header">
         <div class="row">
           <div class="col-6 emphasis text-left">
@@ -22,30 +22,27 @@
         <% end %>
       </div>
 
-      <br class="clear-fix" />
-
       <div class="comments">
         <h3>Comments</h3>
 
-        <div class="row">
-          <div class="col-6">
-            <% @post.comments.each do |comment| %>
-              <div class="comment">
-                <span class="comment_handle">
-                  <%= comment.user.name %>:
-                </span>
+        <br />
 
-                <%= comment.message %>
-              </div>
-            <% end %>
+        <% @post.comments.each do |comment| %>
+          <div class="comment">
+            <span class="comment_handle">
+              <%= comment.user.name %>:
+            </span>
+
+            <%= comment.message %>
           </div>
-          <div class="col-6">
-            <%= simple_form_for Comment.new, url: post_comments_path(@post) do |f| %>
-              <%= f.input :message %>
-              <%= f.submit 'Add Comment', class: 'green-btn' %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
+
+        <br />
+
+        <%= simple_form_for Comment.new, url: post_comments_path(@post) do |f| %>
+          <%= f.input :message %>
+          <%= f.submit 'Add Comment', class: 'green-btn' %>
+        <% end %>
       </div>
     </div>
   </div>
