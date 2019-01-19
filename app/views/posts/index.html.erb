@@ -1,49 +1,7 @@
 <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
   <% @posts.each do |post| %>
-  <div class="card">
-    <div class="row post-header">
-      <div class="col-6 emphasis text-left">
-        <%= post.caption %>
-      </div>
-      <div class="col-6 handle text-right">
-        Uploaded by: <%= post.user.name %>
-      </div>
-    </div>
-
-    <%= image_tag post.photo %>
-
-    <div class="post-actions text-right">
-      <% if current_user && current_user == post.user %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </div>
-
-    <br class="clear-fix" />
-
-    <div class="comments">
-      <h3>Comments</h3>
-
-      <div class="row">
-        <div class="col-6">
-          <% post.comments.each do |comment| %>
-            <div class="comment">
-              <span class="comment_handle">
-                <%= comment.user.name %>:
-              </span>
-
-              <%= comment.message %>
-            </div>
-          <% end %>
-        </div>
-        <div class="col-6">
-          <%= simple_form_for Comment.new, url: post_comments_path(post) do |f| %>
-            <%= f.input :message %>
-            <%= f.submit 'Add Comment', class: 'green-btn' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+    <%= link_to post_path(post) do %>
+      <%= image_tag post.photo, class: 'thumbnail' %>
+    <% end %>
   <% end %>
 </div>

@@ -10,7 +10,7 @@ RSpec.describe CommentsController, type: :controller do
 
       post :create, params: { post_id: testpost.id, comment: { message: 'test comment' } }
 
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to post_path(testpost)
       expect(testpost.comments.length).to eq 1
       expect(testpost.comments.first.message).to eq "test comment"
     end
