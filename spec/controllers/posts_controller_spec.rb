@@ -10,7 +10,7 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    # will add functionality to blur out thumbnails and make them inaccessible when not logged in
+    # will add functionality later to blur out thumbnails and make them inaccessible when not logged in
     it "should successfully show the index page if a user is not logged in" do
       get :index
       expect(response).to have_http_status(:success)
@@ -18,7 +18,7 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "posts#show action" do
-    it "should successfully show the post if the post is found and a user is logged in" do
+    it "should successfully show the post if a user is logged in and the post is found" do
       post = FactoryBot.create(:post)
       user = FactoryBot.create(:user)
       sign_in user
@@ -27,15 +27,19 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "should redirect to the log in page if the post is found but a user is not logged in" do
-      post = FactoryBot.create(:post)
-      get :show, params: { id: post.id }
-      expect(response).to redirect_to new_user_session_path
-    end
-
-    it "should return a 404 error if the post is not found" do
+    it "should return a 404 error if a user is logged in but the post is not found" do
+      user = FactoryBot.create(:user)
+      sign_in user
+      
       get :show, params: { id: 'WHATEVER' }
       expect(response).to have_http_status(:not_found)
+    end
+
+    it "should redirect to the log in page if a user is not logged in" do
+      post = FactoryBot.create(:post)
+
+      get :show, params: { id: post.id }
+      expect(response).to redirect_to new_user_session_path
     end
   end
 
