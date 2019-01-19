@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   describe "posts#index action" do
-    it "should successfully show the page if a user is logged in" do
+    it "should successfully show the index page if a user is logged in" do
       user = FactoryBot.create(:user)
       sign_in user
 
@@ -10,19 +10,27 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    # note sure why this isn't working -- need to work on later
-    #
-    # it "should default to the login page if a user is not logged in" do
-    #   get :index
-    #   expect(get: "/").to route_to(controller: 'devise/sessions', action: 'new')
-    # end
+    # will add functionality to blur out thumbnails and make them inaccessible when not logged in
+    it "should successfully show the index page if a user is not logged in" do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
   end
 
   describe "posts#show action" do
-    it "should successfully show the page if the post is found" do
+    it "should successfully show the post if the post is found and a user is logged in" do
       post = FactoryBot.create(:post)
+      user = FactoryBot.create(:user)
+      sign_in user
+
       get :show, params: { id: post.id }
       expect(response).to have_http_status(:success)
+    end
+
+    it "should redirect to the log in page if the post is found but a user is not logged in" do
+      post = FactoryBot.create(:post)
+      get :show, params: { id: post.id }
+      expect(response).to redirect_to new_user_session_path
     end
 
     it "should return a 404 error if the post is not found" do
