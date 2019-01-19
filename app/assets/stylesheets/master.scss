@@ -190,3 +190,15 @@ input {
   color: #125688;
   font-weight: 500;
 }
+
+.thumbnail {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+  background-color: #fff;
+}
+
+img {
+  max-height: 90%;
+}
