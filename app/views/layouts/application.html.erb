@@ -30,7 +30,9 @@
             <% if current_user %>
               <%= link_to 'Upload', new_post_path %>
               <%= link_to 'Profile', root_path %>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Log in', new_user_session_path %>
             <% end %>
           </div>
         </div>
