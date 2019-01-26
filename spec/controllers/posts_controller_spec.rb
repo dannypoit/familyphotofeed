@@ -18,7 +18,18 @@ RSpec.describe PostsController, type: :controller do
 
     it "should display thumbnails sorted by upload date in descending order" do
       get :index
+
       thumbnail_upload_dates = []
+      @posts = Post.order(created_at: :desc)
+      @posts.each do |post|
+        thumbnail_upload_dates << post.created_at
+      end
+
+      def ascending?(arr)
+        arr == arr.sort.reverse
+      end
+
+      expect(ascending?(thumbnail_upload_dates)).to eq(true)
     end
   end
 
