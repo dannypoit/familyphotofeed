@@ -15,6 +15,22 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    it "should display thumbnails sorted by upload date in descending order" do
+      get :index
+
+      thumbnail_upload_dates = []
+      @posts = Post.order(created_at: :desc)
+      @posts.each do |post|
+        thumbnail_upload_dates << post.created_at
+      end
+
+      def ascending?(arr)
+        arr == arr.sort.reverse
+      end
+
+      expect(ascending?(thumbnail_upload_dates)).to eq(true)
+    end
   end
 
   describe "posts#show action" do
@@ -30,7 +46,7 @@ RSpec.describe PostsController, type: :controller do
     it "should return a 404 error if a user is logged in but the post is not found" do
       user = FactoryBot.create(:user)
       sign_in user
-      
+
       get :show, params: { id: 'WHATEVER' }
       expect(response).to have_http_status(:not_found)
     end
