@@ -4,21 +4,12 @@
 body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
-  // line-height: 18px;
   background-color: #fafafa;
-  margin-bottom: 30px;
 }
 
 p, ol, ul, td {
-  // font-size: 13px;
   line-height: 18px;
   margin: 33px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  // font-size: 11px;
 }
 
 a {
@@ -130,7 +121,6 @@ label {
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
-  margin: 10px 50px;
   // padding: 0;
 }
 
@@ -211,6 +201,6 @@ img {
   height: 170px;
 }
 
-.thumb-area {
-  margin: 10px 50px;
+.content-area {
+  margin: 30px 45px;
 }
