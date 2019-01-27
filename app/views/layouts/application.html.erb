@@ -22,7 +22,7 @@
               Hello, <%= current_user.name %>!
             <% end %>
           </div>
-          <div class="col-4 add text-right">
+          <div class="col-4 add emphasis text-right">
             <% if current_user %>
               <%= link_to 'Upload', new_post_path %>
               <%= link_to 'Profile', root_path %>
@@ -39,7 +39,9 @@
 
     <br />
 
-    <%= yield %>
+    <div class="content-area">
+      <%= yield %>
+    </div>
 
   </body>
 </html>
