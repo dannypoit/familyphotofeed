@@ -4,10 +4,10 @@
       <%= image_tag @post.photo, class: 'img-fluid' %>
     </div>
 
-    <div class="col info-area">
+    <div class="col">
       <div class="post-header">
         <div class="row">
-          <div class="col-6 emphasis text-left">
+          <div class="col-6 bold text-left">
             <%= @post.caption %>
           </div>
           <div class="col-6 handle text-right">
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div class="post-actions text-right">
+      <div class="bold post-actions text-right">
         <% if current_user && current_user == @post.user %>
           <%= link_to 'Edit', edit_post_path(@post) %>
           <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -38,7 +38,7 @@
 
         <%= simple_form_for Comment.new, url: post_comments_path(@post) do |f| %>
           <%= f.input :message, label: false %>
-          <%= f.submit 'Add Comment', class: 'green-btn' %>
+          <%= f.submit 'Add comment', class: 'btn btn-green btn-half' %>
         <% end %>
       </div>
     </div>

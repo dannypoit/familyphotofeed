@@ -47,7 +47,7 @@ a {
   }
 }
 
-.emphasis {
+.bold {
   font-weight: 500;
 }
 
@@ -64,10 +64,7 @@ a {
 
 .card.form {
   padding: 20px;
-}
-
-.info-area {
-  max-width: 600px;
+  margin-top: 100px;
 }
 
 label {
@@ -76,11 +73,9 @@ label {
 
 input {
   font-size: 18px;
-  font-weight: 400;
 }
 
-.green-btn {
-  background-color: #128856;
+.btn {
   width: 100%;
   border: none;
   font-size: 24px;
@@ -88,17 +83,47 @@ input {
   margin-top: 10px;
 }
 
-.blue-btn {
+.btn-blue {
   background-color: #125688;
-  width: 100%;
-  border: none;
-  font-size: 24px;
-  color: white;
-  margin-top: 10px;
+}
+
+.btn-green {
+  background-color: #128856;
+}
+
+.btn-half {
+  width: 50%;
+}
+
+.content-area {
+  margin: 0 12px;
+}
+
+.thumb-container {
+  display: inline-block;
+  width: 170px;
+  height: 170px;
+  position: relative;
+}
+
+.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: #fff;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+img {
+  padding: 5px;
 }
 
 .post-actions a {
-  font-weight: 500;
   font-size: 14px;
   margin-right: 10px;
   margin-left: auto;
@@ -108,36 +133,14 @@ input {
   padding: 20px;
   position: absolute;
   bottom: 0;
+  width: 97%; /* there must be a better way to do this */
 }
 
 .comment {
-  font-size: 16px;
   margin-top: 5px;
 }
 
 .comment_handle {
   color: #125688;
   font-weight: 500;
-}
-
-.thumbnail {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  background-color: #fff;
-}
-
-img {
-  // max-height: 500px;
-  padding: 5px;
-}
-
-.thumb-container {
-  display: inline-block;
-  width: 170px;
-  height: 170px;
-}
-
-.content-area {
-  margin: 50px 50px;
 }
