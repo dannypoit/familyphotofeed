@@ -7,15 +7,6 @@ body {
   background-color: #fafafa;
 }
 
-a {
-  color: #125688;
-
-  &:hover {
-    color: #488BBD;
-    text-decoration: none;
-  }
-}
-
 .top-nav {
   background-color: white;
   border-bottom-color: #edeeee;
@@ -23,6 +14,19 @@ a {
   border-bottom-style: solid;
   height: 70px;
   padding-top: 15px;
+}
+
+.content-area {
+  padding: 30px;
+}
+
+a {
+  color: #125688;
+
+  &:hover {
+    color: #488BBD;
+    text-decoration: none;
+  }
 }
 
 .brand {
@@ -95,16 +99,10 @@ input {
   width: 50%;
 }
 
-// this is where I'm stuck
-.content-area {
-  margin: 0 13px;
-  // padding: 5 15px;
-}
-
 .thumb-container {
   display: inline-block;
-  width: 170px;
-  height: 170px;
+  width: 180px;
+  height: 180px;
   position: relative;
 }
 
@@ -123,6 +121,7 @@ input {
 
 img {
   padding: 5px;
+  max-height: 600px;
 }
 
 .post-actions a {
