@@ -1,9 +1,7 @@
-<div class="text-center">
-  <% @posts.each do |post| %>
-    <div class="thumb-container">
-      <%= link_to post_path(post) do %>
-        <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<% @posts.each do |post| %>
+  <div class="thumb-container">
+    <%= link_to post_path(post) do %>
+      <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
+    <% end %>
+  </div>
+<% end %>
