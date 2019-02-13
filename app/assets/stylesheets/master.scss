@@ -44,7 +44,7 @@ a {
 }
 
 .add {
-  margin-top: 10px;
+  padding-top: 10px;
 
   a {
     font-size: 16px;
@@ -65,11 +65,11 @@ a {
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
+  margin-top: 70px;
 }
 
 .card.form {
   padding: 20px;
-  margin-top: 100px;
 }
 
 label {
@@ -121,8 +121,12 @@ input {
 }
 
 img {
-  padding: 5px;
+  margin: 5px;
   max-height: 600px;
+}
+
+.img-container {
+  padding: 0;
 }
 
 .post-actions a {
@@ -136,6 +140,8 @@ img {
   position: absolute;
   bottom: 0;
   width: 97%; /* there must be a better way to do this */
+  overflow: auto;
+  max-height: 500px;
 }
 
 .comment {
@@ -146,3 +152,7 @@ img {
   color: #125688;
   font-weight: 500;
 }
+
+// div {
+//   border: 1px solid #888888;
+// }
