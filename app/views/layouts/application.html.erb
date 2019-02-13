@@ -22,7 +22,7 @@
               Hello, <%= current_user.name %>!
             <% end %>
           </div>
-          <div class="col-4 add text-right">
+          <div class="col-4 add bold text-right">
             <% if current_user %>
               <%= link_to 'Upload', new_post_path %>
               <%= link_to 'Profile', root_path %>
@@ -34,26 +34,12 @@
           </div>
         </div>
       </div>
+
       <br class="clear-fix" />
     </div>
 
-    <br />
-
-    <!-- <div class="col-6 offset-3 text-center">
-      <% if notice.present? %>
-        <p class="alert alert-info"><%= notice %></p>
-      <% end %>
-
-      <% if alert.present? %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-
-      <div class="clear-fix"></div>
-    </div> -->
-
-    <%= yield %>
-
-    <!-- -->
-
+    <div class="container-fluid content-area">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -4,84 +4,7 @@
 body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
-  // line-height: 18px;
   background-color: #fafafa;
-  margin-bottom: 30px;
-}
-
-p, ol, ul, td {
-  // font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  // font-size: 11px;
-}
-
-a {
-  color: #125688;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-th {
-  padding-bottom: 5px;
-}
-
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-
-#notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    // font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  ul li {
-    // font-size: 12px;
-    list-style: square;
-  }
-}
-
-label {
-  display: block;
 }
 
 .top-nav {
@@ -93,13 +16,26 @@ label {
   padding-top: 15px;
 }
 
+.content-area {
+  padding: 30px;
+  text-align: center;
+}
+
+a {
+  color: #125688;
+
+  &:hover {
+    color: #488BBD;
+    text-decoration: none;
+  }
+}
+
 .brand {
   font-family: 'Comfortaa', verdana, arial, helvetica, sans-serif;
 
   a {
   color: #125688;
   font-size: 36px;
-  // font-weight: 600;
   }
 }
 
@@ -108,16 +44,15 @@ label {
 }
 
 .add {
-  margin-top: 10px;
+  padding-top: 10px;
 
   a {
     font-size: 16px;
-    font-weight: 500;
     padding-left: 15px;
   }
 }
 
-.emphasis {
+.bold {
   font-weight: 500;
 }
 
@@ -130,13 +65,7 @@ label {
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
-  margin-top: 40px;
-  padding: 0;
-}
-
-.card p, .card .message {
-  // font-size: 18px;
-  margin: 20px;
+  margin-top: 70px;
 }
 
 .card.form {
@@ -149,11 +78,9 @@ label {
 
 input {
   font-size: 18px;
-  font-weight: 400;
 }
 
-.green-btn {
-  background-color: #128856;
+.btn {
   width: 100%;
   border: none;
   font-size: 24px;
@@ -161,17 +88,48 @@ input {
   margin-top: 10px;
 }
 
-.blue-btn {
+.btn-blue {
   background-color: #125688;
-  width: 100%;
-  border: none;
-  font-size: 24px;
-  color: white;
-  margin-top: 10px;
+}
+
+.btn-green {
+  background-color: #128856;
+}
+
+.btn-half {
+  width: 50%;
+}
+
+.thumb-container {
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+  position: relative;
+}
+
+.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: #fff;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+img {
+  margin: 5px;
+  max-height: 600px;
+}
+
+.img-container {
+  padding: 0;
 }
 
 .post-actions a {
-  font-weight: 500;
   font-size: 14px;
   margin-right: 10px;
   margin-left: auto;
@@ -181,10 +139,12 @@ input {
   padding: 20px;
   position: absolute;
   bottom: 0;
+  width: 97%; /* there must be a better way to do this */
+  overflow: auto;
+  max-height: 500px;
 }
 
 .comment {
-  font-size: 16px;
   margin-top: 5px;
 }
 
@@ -193,20 +153,6 @@ input {
   font-weight: 500;
 }
 
-.thumbnail {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  // width: 150px; /* Set a small width */
-  background-color: #fff;
-  margin-right: 10px;
-}
-
-img {
-  max-height: 500px;
-  padding: 5px;
-}
-
-.post-card {
-  position: relative;
-}
+// div {
+//   border: 1px solid #888888;
+// }

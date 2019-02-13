@@ -155,12 +155,12 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to redirect_to new_user_session_path
     end
 
-    it "should allow users to successfully update posts" do
+    it "should allow users to successfully update posts and display the post page" do
       post = FactoryBot.create(:post, caption: "Initial Value")
       sign_in post.user
 
       patch :update, params: { id: post.id, post: { caption: 'Changed' } }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to post_path
       post.reload
       expect(post.caption).to eq "Changed"
     end
