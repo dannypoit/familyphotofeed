@@ -35,7 +35,7 @@
           <% @post.comments.each do |comment| %>
             <div class="comment">
               <span class="comment_handle">
-                <%= comment.user.name %>:
+                <%= comment.user.firstname %> <%= comment.user.lastname[0] %>.:
               </span>
 
               <%= comment.message %>
