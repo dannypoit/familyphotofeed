@@ -27,7 +27,7 @@
           <div class="col-4 add bold text-right">
             <% if current_user %>
               <%= link_to 'Upload', new_post_path %>
-              <%= link_to 'Profile', root_path %>
+              <%= link_to 'Profile', user_path(current_user.id) %>
               <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
             <% else %>
               <%= link_to 'Sign up', new_user_registration_path %>
