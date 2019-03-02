@@ -153,14 +153,6 @@ img {
   font-weight: 500;
 }
 
-div {
-  border: 1px solid #888888;
-}
-
-// #quiver {
-//   padding: 5% 0;
-// }
-
 #arrow {
   padding-top: 18%; /* there must be a better way to do this */
   font-size: 12px;
@@ -178,3 +170,12 @@ div {
 .user-info {
   width: 467px;
 }
+
+.profile-heading {
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+// div {
+//   border: 1px solid #888888;
+// }

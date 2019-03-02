@@ -1,5 +1,5 @@
-<h2>Profile</h2>
-<br />
+<h2 class="profile-heading">Profile</h2>
+
 <div class="col-10 offset-2">
   <div class="row">
     <div class="col-3">
@@ -13,11 +13,12 @@
     <div class="user-info">
       <br />
       Name: <span class="bold"><%= @user.firstname %> <%= @user.lastname %></span>
-      <br />
+      <br /><br />
       Email address: <span class="bold"><%= @user.email %></span>
       <br /><br />
       <div class="edit-links bold">
         <%= link_to 'Edit user info', edit_user_path(current_user.id) %>
+        <br /><br />
         <%= link_to 'Change password', edit_user_password_path(current_user.id) %>
       </div>
     </div>
@@ -37,4 +38,16 @@
       Name format: <span class="bold">First name, last initial</span>
     </div>
   </div>
+</div>
+
+<h4 class="profile-heading">Family members</h4>
+
+<div class="col-10 offset-2">
+  Family member thumbnails go here
+</div>
+
+<h4 class="profile-heading">Uploads</h4>
+
+<div class="col-10 offset-2">
+  Uploaded posts go here
 </div>
