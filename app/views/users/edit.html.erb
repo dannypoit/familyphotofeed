@@ -1,0 +1,14 @@
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 card form">
+  <h2>Edit User Info</h2>
+
+  <br />
+
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :email %>
+    <%= f.submit 'Update', class: 'green-btn' %>
+  <% end %>
+
+  <%= link_to 'Back', user_path %>
+</div>

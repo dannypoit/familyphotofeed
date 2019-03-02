@@ -153,10 +153,10 @@ img {
   font-weight: 500;
 }
 
-// div {
-//   border: 1px solid #888888;
-// }
-//
+div {
+  border: 1px solid #888888;
+}
+
 // #quiver {
 //   padding: 5% 0;
 // }
@@ -168,4 +168,13 @@ img {
 
 .tiny-thumb {
   border-radius: .25rem;
+}
+
+.edit-links a {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.user-info {
+  width: 467px;
 }

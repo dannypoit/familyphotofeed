@@ -1,1 +1,40 @@
-Name: <%= @user.firstname %>
+<h2>Profile</h2>
+<br />
+<div class="col-10 offset-2">
+  <div class="row">
+    <div class="col-3">
+      <%= image_tag @user.avatar_url(:thumb) %>
+      <br />
+      <span class="edit-links bold">
+        <%= link_to 'Change avatar', url: '#' %>
+      </span>
+    </div>
+
+    <div class="user-info">
+      <br />
+      Name: <span class="bold"><%= @user.firstname %> <%= @user.lastname %></span>
+      <br />
+      Email address: <span class="bold"><%= @user.email %></span>
+      <br /><br />
+      <div class="edit-links bold">
+        <%= link_to 'Edit user info', edit_user_path(current_user.id) %>
+        <%= link_to 'Change password', edit_user_password_path(current_user.id) %>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <br />
+      Account type: Free
+      <br />
+      <span class="edit-links bold">
+        <%= link_to 'Upgrade to Premium!', url: '#' %>
+      </span>
+      <br /><br />
+      Email notifications: <span class="bold">On</span>
+      <br /><br />
+      Frequency: <span class="bold">Each new photo</span>
+      <br /><br />
+      Name format: <span class="bold">First name, last initial</span>
+    </div>
+  </div>
+</div>
