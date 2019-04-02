@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  get 'change_avatar', to: 'users#change_avatar'
 end
