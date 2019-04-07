@@ -25,7 +25,7 @@ a {
   color: #125688;
 
   &:hover {
-    color: #488BBD;
+    color: #128856;
     text-decoration: none;
   }
 }
@@ -90,10 +90,18 @@ input {
 
 .btn-blue {
   background-color: #125688;
+
+  &:hover {
+    color: #5B92BA;
+  }
 }
 
 .btn-green {
   background-color: #128856;
+
+  &:hover {
+    color: #5DBA92;
+  }
 }
 
 .btn-half {
