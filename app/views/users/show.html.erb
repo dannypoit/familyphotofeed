@@ -54,7 +54,21 @@
 <h4 class="profile-heading">Uploads</h4>
 
 <div class="col-10 offset-1">
-  Uploaded posts go here
+  <% if current_user.posts.empty? %>
+    <p>
+    You have not uploaded any photos yet. Click
+    <span class="bold"><%= link_to 'Upload', new_post_path %></span> to go to the Upload page.
+    </p>
+  <% else %>
+    <% current_user.posts.each do |post| %>
+      <div class="thumb-container">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
 </div>
 
 <!-- Ad-free Modal -->
