@@ -11,8 +11,10 @@
     <% end %>
   </div>
 
+  <br />
+
   <%= simple_form_for @user do |f| %>
-    <%= f.input :avatar %>
+    <%= f.input :avatar, label: false %>
     <%= f.submit 'Update', class: 'btn btn-green' %>
   <% end %>
 
