@@ -34,11 +34,15 @@
         <div class="comments text-left">
           <% @post.comments.each do |comment| %>
             <div class="comment">
-              <%= image_tag comment.user.avatar_url(:small_thumb), class: 'tiny-thumb' %>
+              <% if comment.user.avatar.present? %>
+                <%= image_tag comment.user.avatar_url(:small_thumb), class: 'tiny-thumb' %>
+              <% else %>
+                <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
+              <% end %>
 
               <span class="comment_handle">
-                <%= comment.user.firstname %> <%= comment.user.lastname[0] %>.:
-              </span>
+                <%= comment.user.firstname %> <%= comment.user.lastname[0] %>.
+              </span>:
 
               <%= comment.message %>
             </div>
