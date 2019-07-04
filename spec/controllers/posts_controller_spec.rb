@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   describe "posts#index action" do
+    it "should successfully show the first name in the greeting" do
+      user = FactoryBot.create(:user)
+      a
+    end
+
     it "should successfully show the index page if a user is logged in" do
       user = FactoryBot.create(:user)
       sign_in user
