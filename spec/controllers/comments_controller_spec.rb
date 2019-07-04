@@ -13,6 +13,8 @@ RSpec.describe CommentsController, type: :controller do
       expect(response).to redirect_to post_path(testpost)
       expect(testpost.comments.length).to eq 1
       expect(testpost.comments.first.message).to eq "test comment"
+      expect(testpost.user.firstname).to eq "Guy"
+      expect(testpost.user.lastname).to eq "Manderson"
     end
 
     it "should require a user to be logged in to comment on a post" do
