@@ -24,7 +24,7 @@
       <div class="edit-links bold">
         <%= link_to 'Edit user info', edit_user_path(current_user.id) %>
         <br /><br />
-        <%= link_to 'Change password', edit_user_password_path(current_user.id) %>
+        <%= link_to 'Change password', edit_user_registration_path(current_user.id) %>
       </div>
     </div>
 
@@ -32,9 +32,9 @@
       <br />
       Account type: Free
       <br />
-      <span class="edit-links bold">
-        <%= link_to 'Upgrade to Premium!', url: '#' %>
-      </span>
+      <button type="button" class="btn btn-primary btn-upgrade" data-toggle="modal" data-target="#adFreeModal">
+        Upgrade to Ad-free
+      </button>
       <br /><br />
       Email notifications: <span class="bold">On</span>
       <br /><br />
@@ -54,5 +54,39 @@
 <h4 class="profile-heading">Uploads</h4>
 
 <div class="col-10 offset-1">
-  Uploaded posts go here
+  <% if current_user.posts.empty? %>
+    <p>
+    You have not uploaded any photos yet. Click
+    <span class="bold"><%= link_to 'Upload', new_post_path %></span> to go to the Upload page.
+    </p>
+  <% else %>
+    <% current_user.posts.each do |post| %>
+      <div class="thumb-container">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+<!-- Ad-free Modal -->
+<div class="modal fade" id="adFreeModal" tabindex="-1" role="dialog" aria-labelledby="adFreeModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adFreeModalLabel">Ad-free</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Coming soon: You will be able to pay a small monthly fee to use this site without any advertisements.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

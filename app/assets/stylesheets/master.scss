@@ -25,7 +25,7 @@ a {
   color: #125688;
 
   &:hover {
-    color: #128856;
+    color: #488BBD;
     text-decoration: none;
   }
 }
@@ -86,6 +86,12 @@ input {
   font-size: 24px;
   color: white;
   margin-top: 10px;
+}
+
+.btn-upgrade {
+  font-size: 12px;
+  width: 160px;
+  margin-top: 0;
 }
 
 .btn-blue {
