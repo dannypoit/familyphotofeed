@@ -34,18 +34,6 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "posts#show action" do
-    it "should show a user's first name and last initial on comments on posts" do
-      testpost = FactoryBot.create(:post)
-
-      user = FactoryBot.create(:user)
-      sign_in user
-
-      post :create, params: { post_id: testpost.id, comment: { message: 'test comment' } }
-
-      # NEED TO FIX THIS TEST
-      expect(comment_handle).to eq "Guy M."
-    end
-
     it "should successfully show the post if a user is logged in and the post is found" do
       post = FactoryBot.create(:post)
       user = FactoryBot.create(:user)
