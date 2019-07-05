@@ -23,6 +23,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def invite
+    @user = User.find(params[:id])
+
+    @users = User.all
+    @search = params['search']
+    if @search.present?
+      @email = @search['email']
+      @users = User.where("email ILIKE ?", @email)
+    end
+  end
+
   private
 
   def user_params

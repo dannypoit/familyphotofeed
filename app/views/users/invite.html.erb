@@ -1,0 +1,50 @@
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-4 card form">
+  <h2>Invite people to my family</h2>
+
+  <br />
+
+  <div class="text-left">
+    Search by e-mail address for the person you want to add
+  </div>
+
+  <br />
+
+  <%= simple_form_for :search, url: invite_path(current_user.id), method: "GET", html: { class: 'form-inline' } do |f| %>
+
+    <%= f.input :email, label: 'E-mail address', input_html: {value: ""} %>
+    <%= f.submit 'Search', class: 'btn btn-blue' %>
+
+  <% end %>
+
+  <br />
+
+  <%= link_to 'Back', user_path %>
+</div>
+
+<br /><br />
+
+<% if @search.present? %>
+  <% @users.each do |user| %>
+    <% if user.avatar.present? %>
+      <%= image_tag user.avatar_url(:thumb), class: 'avatar' %>
+    <% else %>
+      <%= image_tag 'default_avatar.jpg', class: 'avatar' %>
+    <% end %>
+    <br />
+    <span class="bold"><%= "#{user.firstname} #{user.lastname}"  %></span>
+    <br />
+    <%= user.email %>
+    <br />
+
+    <% if current_user.family.include?(user.id) %>
+      (This person is already in your family.)
+    <% elsif current_user.id == user.id %>
+      (This is you.)
+    <% else %>
+      <!-- push user.id onto current_user.family -->
+      <button type="button" class="btn btn-green profile-btn btn-invite" data-toggle="modal" data-target="#thisDoesNothing">
+        Invite to my family
+      </button>
+    <% end %>
+  <% end %>
+<% end %>

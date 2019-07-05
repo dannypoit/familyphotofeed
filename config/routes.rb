@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   get '/users/:id/change_avatar', to: 'users#change_avatar', as: 'change_avatar'
+  get '/users/:id/invite', to: 'users#invite', as: 'invite'
 end
