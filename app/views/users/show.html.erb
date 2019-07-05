@@ -48,19 +48,33 @@
 <h4 class="profile-heading">Family members</h4>
 
 <div class="col-10 offset-1">
-  Family member thumbnails go here
+  <% if @user.family.empty? %>
+    <p>
+      You have not added any family members yet.
+    </p>
+  <% else %>
+    <% @user.family.each do |user_id| %>
+      <div class="family-member">
+        <%= image_tag User.find(user_id).avatar_url(:thumb), class: 'avatar avatar-family' %>
+      <br />
+        <span class="bold">
+          <%= "#{User.find(user_id).firstname} #{User.find(user_id).lastname}"  %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
 <h4 class="profile-heading">Uploads</h4>
 
 <div class="col-10 offset-1">
-  <% if current_user.posts.empty? %>
+  <% if @user.posts.empty? %>
     <p>
-    You have not uploaded any photos yet. Click
-    <span class="bold"><%= link_to 'Upload', new_post_path %></span> to go to the Upload page.
+      You have not uploaded any photos yet. Click
+      <span class="bold"><%= link_to 'Upload', new_post_path %></span> to go to the Upload page.
     </p>
   <% else %>
-    <% current_user.posts.each do |post| %>
+    <% @user.posts.each do |post| %>
       <div class="thumb-container">
         <%= link_to post_path(post) do %>
           <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
