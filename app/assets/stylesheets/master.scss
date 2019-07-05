@@ -88,10 +88,17 @@ input {
   margin-top: 10px;
 }
 
-.btn-upgrade {
+.profile-btn {
   font-size: 12px;
-  width: 160px;
   margin-top: 0;
+}
+
+.btn-upgrade {
+  width: 160px;
+}
+
+.btn-invite {
+  width: 200px;
 }
 
 .btn-blue {
@@ -203,14 +210,19 @@ img {
   // transform: translate(-50%, -50%);
 }
 
-.avatar-family {
+.family-avatar {
   max-width: 200px;
   max-height: 200px;
 }
 
-.family-member {
+.family-avatar-container {
   display: inline-block;
   margin: 0 10px;
+}
+
+.family-members {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 // div {

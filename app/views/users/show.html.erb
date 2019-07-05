@@ -32,7 +32,7 @@
       <br />
       Account type: Free
       <br />
-      <button type="button" class="btn btn-primary btn-upgrade" data-toggle="modal" data-target="#adFreeModal">
+      <button type="button" class="btn btn-primary profile-btn btn-upgrade" data-toggle="modal" data-target="#adFreeModal">
         Upgrade to Ad-free
       </button>
       <br /><br />
@@ -47,15 +47,15 @@
 
 <h4 class="profile-heading">Family members</h4>
 
-<div class="col-10 offset-1">
+<div class="col-10 offset-1 family-members">
   <% if @user.family.empty? %>
     <p>
       You have not added any family members yet.
     </p>
   <% else %>
     <% @user.family.each do |user_id| %>
-      <div class="family-member">
-        <%= image_tag User.find(user_id).avatar_url(:thumb), class: 'avatar avatar-family' %>
+      <div class="family-avatar-container">
+        <%= image_tag User.find(user_id).avatar_url(:thumb), class: 'avatar family-avatar' %>
       <br />
         <span class="bold">
           <%= "#{User.find(user_id).firstname} #{User.find(user_id).lastname}"  %>
@@ -64,6 +64,10 @@
     <% end %>
   <% end %>
 </div>
+
+<button type="button" class="btn btn-primary profile-btn btn-invite" data-toggle="modal" data-target="#adFreeModal">
+  Invite people to my family
+</button>
 
 <h4 class="profile-heading">Uploads</h4>
 
