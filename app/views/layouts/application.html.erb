@@ -12,30 +12,32 @@
 
   <body>
     <div class="top-nav">
-      <div class="col-10 offset-1">
-        <div class="row">
-          <div class="col-4 brand float-left">
-            <%= link_to 'family', root_path, class: 'h1' %>
-            <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
-            <%= link_to 'feed', root_path, class: 'h1' %>
-          </div>
-          <div class="col-4 add text-center">
-            <% if current_user %>
-              Hello, <%= current_user.firstname %>!
-            <% end %>
-          </div>
-          <div class="col-4 add bold text-right">
-            <% if current_user %>
-              <%= link_to 'Upload', new_post_path %>
-              <%= link_to 'Profile', user_path(current_user.id) %>
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to 'Sign up', new_user_registration_path %>
-              <%= link_to 'Log in', new_user_session_path %>
-            <% end %>
+
+        <div class="col-12 col-lg-10 offset-lg-1">
+          <div class="row">
+            <div class="col-4 brand float-left">
+              <%= link_to 'family', root_path, class: 'h1' %>
+              <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
+              <%= link_to 'feed', root_path, class: 'h1' %>
+            </div>
+            <div class="col-4 add text-center">
+              <% if current_user %>
+                Hello, <%= current_user.firstname %>!
+              <% end %>
+            </div>
+            <div class="col-4 add bold text-right">
+              <% if current_user %>
+                <%= link_to 'Upload', new_post_path %>
+                <%= link_to 'Profile', user_path(current_user.id) %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to 'Sign up', new_user_registration_path %>
+                <%= link_to 'Log in', new_user_session_path %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
+
 
       <br class="clear-fix" />
     </div>

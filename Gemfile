@@ -82,5 +82,8 @@ gem 'figaro'
 # Use fog to allow CarrierWave to communicate with Amazon S3
 gem 'fog-aws'
 
-# Ue MiniMagick for ImageMagick conversions
+# Use MiniMagick for ImageMagick conversions
 gem 'mini_magick'
+
+# Use Sprockets Rails for Bootstrap 4
+gem 'sprockets-rails', :require => 'sprockets/railtie'
