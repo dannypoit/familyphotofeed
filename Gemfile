@@ -87,3 +87,6 @@ gem 'mini_magick'
 
 # Use Sprockets Rails for Bootstrap 4
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+# Use HasFriendship for friendship management
+gem 'has_friendship'

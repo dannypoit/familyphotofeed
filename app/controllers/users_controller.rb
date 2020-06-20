@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  has_friendship
+
   def show
     @user = User.find(params[:id])
   end
