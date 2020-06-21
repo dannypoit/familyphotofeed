@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  has_friendship
-
   def show
     @user = User.find(params[:id])
   end
@@ -34,6 +32,12 @@ class UsersController < ApplicationController
       @email = @search['email']
       @users = User.where("email ILIKE ?", @email)
     end
+  end
+
+  def invite_to_family
+    @user = User.find(params[:id])
+    user_to_invite = @found_user
+    @user.friend_request(user_to_invite)
   end
 
   private
