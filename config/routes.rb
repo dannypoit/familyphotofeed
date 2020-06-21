@@ -20,5 +20,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   get '/users/:id/change_avatar', to: 'users#change_avatar', as: 'change_avatar'
-  get '/users/:id/invite', to: 'users#invite', as: 'invite'
+
+  post "/friends/add" => "friends/add"
+  post "/friends/reject" => "friends/reject"
+  post "/friends/remove" => "friends/remove"
+  get "/friends/search" => "friends/search"
+  post "/friends/search" => "friends/search"
+  resources :friends, only: [:index, :create]
 end
