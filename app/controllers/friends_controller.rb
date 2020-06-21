@@ -37,15 +37,14 @@ class FriendsController < ApplicationController
     friend = User.find_by(id: params[:id])
     @user.remove_friend(friend)
 
-    redirect_to user_path(friend)
+    redirect_to friends_path
   end
 
   def search
     @search = params[:search].downcase
     @results = User.all.select do |user|
       user_fullname = user.firstname + " " + user.lastname
-      user_fullname.downcase.include?(@search)
-      user.email.downcase.include?(@search)
+      user_fullname.downcase.include?(@search) || user.email.downcase.include?(@search)
     end
   end
 end

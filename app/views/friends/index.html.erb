@@ -66,15 +66,20 @@
   <h4 class="profile-heading">Your family:</h4>
     <% if ! @user.friends.empty? %>
       <% @friends.each do |friend| %>
-        <% if User.find(friend).avatar.present? %>
-          <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
-        <% else %>
-          <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
-        <% end %>
-        <br />
-        <span class="bold">
-          <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
-        </span>
+        <div class="d-inline-block m-3">
+          <% if User.find(friend).avatar.present? %>
+            <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
+          <% else %>
+            <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
+          <% end %>
+          <br />
+          <span class="bold">
+            <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
+          </span>
+          <%= form_tag ({controller: 'friends', action: 'remove', method: 'post', id: friend.id}) do %>
+            <input class="" type=submit value='Remove'>
+          <% end %>
+        </div>
       <% end %>
     <% else %>
       <p>You have not added any family members yet.</p>
