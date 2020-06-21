@@ -23,23 +23,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def invite
-    @user = User.find(params[:id])
-
-    @users = User.all
-    @search = params['search']
-    if @search.present?
-      @email = @search['email']
-      @users = User.where("email ILIKE ?", @email)
-    end
-  end
-
-  def invite_to_family
-    @user = User.find(params[:id])
-    user_to_invite = @found_user
-    @user.friend_request(user_to_invite)
-  end
-
   private
 
   def user_params
