@@ -1,6 +1,7 @@
 class FriendsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    require_logged_in
     @user = current_user
     @friends = @user.friends
     @requests = @user.requested_friends

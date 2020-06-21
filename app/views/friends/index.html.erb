@@ -1,0 +1,39 @@
+<h4 class="profile-heading">Friend Requests:</h3>
+
+<div class="col-10 offset-1 family-members">
+  <% if @user.friend_requests? %>
+    <% @requests.each do |friend| %>
+    <% end %>
+  <% else %>
+    <p>No friend requests</p>
+  <% end %>
+</div>
+
+
+<h4 class="profile-heading">Family members</h4>
+
+<div class="col-10 offset-1 family-members">
+  
+
+  <% if @user.family.empty? %>
+    <p>
+      You have not added any family members yet.
+    </p>
+  <% else %>
+    <% @user.family.each do |user_id| %>
+      <div class="family-avatar-container">
+        <% if User.find(user_id).avatar.present? %>
+          <%= image_tag User.find(user_id).avatar_url(:thumb), class: 'avatar family-avatar' %>
+        <% else %>
+          <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
+        <% end %>
+      <br />
+        <span class="bold">
+          <%= "#{User.find(user_id).firstname} #{User.find(user_id).lastname}"  %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<p>>Invite people to my family</p>
