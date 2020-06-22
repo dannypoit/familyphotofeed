@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>familyphotofeed</title>
+    <title>Family Photo Feed</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,34 +11,52 @@
   </head>
 
   <body>
-    <div class="top-nav">
-      <div class="col-10 offset-1">
-        <div class="row">
-          <div class="col-4 brand float-left">
-            <%= link_to 'family', root_path, class: 'h1' %>
-            <span class="brand-green"><%= link_to 'photo', root_path, class: 'h1' %></span>
-            <%= link_to 'feed', root_path, class: 'h1' %>
-          </div>
-          <div class="col-4 add text-center">
-            <% if current_user %>
-              Hello, <%= current_user.firstname %>!
-            <% end %>
-          </div>
-          <div class="col-4 add bold text-right">
-            <% if current_user %>
-              <%= link_to 'Upload', new_post_path %>
-              <%= link_to 'Profile', user_path(current_user.id) %>
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to 'Sign up', new_user_registration_path %>
-              <%= link_to 'Log in', new_user_session_path %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+    <nav class="navbar navbar-light sticky-top navbar-expand-lg">
+      <div class="container-sm">
+        <%= link_to 'family', root_path, class: 'navbar-brand mr-1' %><%= link_to 'photo', root_path, class: 'navbar-brand navbar-brand-green mr-1' %><%= link_to 'feed', root_path, class: 'navbar-brand' %>
 
-      <br class="clear-fix" />
-    </div>
+        <div class="d-none d-lg-block text-muted small">
+          <% if current_user %>
+            Hello, <%= current_user.firstname %>!
+          <% end %>
+        </div>
+
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="collapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="collapsingNavbar" class="collapse navbar-collapse align-self-center">
+          <ul class="navbar-nav ml-auto">
+            <% if current_user %>
+              <li class="nav-item ml-3">
+                <%= link_to 'Upload', new_post_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to 'Profile', user_path(current_user), class: 'nav-link' %>
+              </li><li class="nav-item ml-3">
+                <%= link_to 'Family', friends_path, class: 'nav-link d-inline-block' %>
+                  <% if current_user.requested_friends.count > 0 %>
+                    <span class="badge badge-pill badge-danger d-inline">
+                      <%= current_user.requested_friends.count %>
+                    </span>
+                  <% end %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item ml-3">
+                <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to 'Log in', new_user_session_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
 
     <div class="container-fluid content-area">
       <%= yield %>

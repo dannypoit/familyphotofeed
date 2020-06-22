@@ -59,8 +59,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use popper
 gem 'popper_js', '~> 1.14.5'
 
-# Use bootstrap for frontend design
-gem 'bootstrap', '>= 4.3.1'
+# Use Bootstrap 4 for front-end design
+gem 'bootstrap', '~> 4.5.0'
 
 # Use rails-assets-tether
 source 'https://rails-assets.org' do
@@ -82,5 +82,11 @@ gem 'figaro'
 # Use fog to allow CarrierWave to communicate with Amazon S3
 gem 'fog-aws'
 
-# Ue MiniMagick for ImageMagick conversions
+# Use MiniMagick for ImageMagick conversions
 gem 'mini_magick'
+
+# Use Sprockets Rails for Bootstrap 4
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+# Use HasFriendship for friendship management
+gem 'has_friendship'

@@ -8,4 +8,22 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+
+  has_friendship
+
+  def friends?
+    self.friends
+  end
+
+  def friend_requests?
+      self.requested_friends.any?
+  end
+
+  def requested_friends?
+      self.pending_friends.any?
+  end
+
+  def invite_friend(user)
+      self.friend_request(user)
+  end
 end
