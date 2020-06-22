@@ -1,26 +1,29 @@
 <h2 class="profile-heading">Search results</h2>
 
-<div class="col-10 offset-1 family-members">
+<div class="col-10 offset-1 family-members py-3">
   <% if @results == [] %>
-    <p>No results found</p>
+    <p class="lead"><strong>No results found</strong></p>
+    <p><strong>NOTE:</strong> Your search must match either the <u>first AND last name</u> or the <u>full e-mail address</u> of the family member you are trying to find.</p>
   <% else %>
     <% @results.each do |user| %>
-      <% if user.firstname != current_user.firstname %>
-        <div class="d-inline-block m-3">
-          <% if User.find(user).avatar.present? %>
-            <%= image_tag User.find(user).avatar_url(:thumb), class: 'avatar family-avatar' %>
-          <% else %>
-            <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
-          <% end %>
-          <br />
-          <span class="bold">
-            <%= "#{User.find(user).firstname} #{User.find(user).lastname}"  %>
-          </span>
-          <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
-            <input class="" type=submit value='Add friend'>
-          <% end %>
-        </div>
-      <% end %>
+        <% if user.firstname != current_user.firstname %>
+          <div class="family-avatar-container d-inline-block m-3">
+            <% if User.find(user).avatar.present? %>
+              <%= image_tag User.find(user).avatar_url(:thumb), class: 'avatar family-avatar' %>
+            <% else %>
+              <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
+            <% end %>
+            <br />
+            <span class="bold">
+              <%= "#{User.find(user).firstname} #{User.find(user).lastname}"  %>
+            </span>
+            <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
+              <input class="btn btn-outline-success btn-sm mt-2" type=submit value='Invite to my family'>
+            <% end %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 </div>
+
+<%= link_to 'Back to Family', friends_path, class: 'btn btn-blue mt-5' %>

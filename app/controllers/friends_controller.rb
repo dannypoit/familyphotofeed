@@ -43,8 +43,8 @@ class FriendsController < ApplicationController
   def search
     @search = params[:search].downcase
     @results = User.all.select do |user|
-      user_fullname = user.firstname + " " + user.lastname
-      user_fullname.downcase.include?(@search) || user.email.downcase.include?(@search)
+      user_fullname = user.firstname.downcase + " " + user.lastname.downcase
+      user_fullname == @search || user.email.downcase == @search
     end
   end
 end

@@ -7,7 +7,7 @@
       <h4 class="profile-heading">Incoming requests:</h4>
       <% if @user.friend_requests? %>
         <% @requests.each do |friend| %>
-          <div class="family-avatar-container">
+          <div class="family-avatar-container mb-4">
             <% if User.find(friend).avatar.present? %>
               <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
             <% else %>
@@ -17,12 +17,14 @@
             <span class="bold">
               <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}" %>
             </span>
+            <div class="d-flex">
             <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
-              <input class="" type=submit value='Accept'>
+              <input class="btn btn-outline-success btn-sm mt-2 mx-1" type=submit value='Accept'>
             <% end %>
             <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
-              <input class="" type=submit value='Deny'>
+              <input class="btn btn-outline-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
             <% end %>
+            </div>
           </div>
         <% end %>
       <% else %>
@@ -53,10 +55,12 @@
 
     <div class="col-12 col-md-4">
       <h4 class="profile-heading">Find family members:</h4>
+      
       <%= form_tag ({controller: 'friends', action: 'search'}) do %>
         <input type="text" name="search" id="search">
-        <input class="" type="submit" name="commit" value="Search" data-disable-with="Search">
+        <input class="btn btn-blue" type="submit" name="commit" value="Search" data-disable-with="Search">
       <% end %>
+      <p class="text-muted small mt-2">Enter the first and last name or e-mail address of the family member you want to find</p>
     </div>
 
   </div>
@@ -77,7 +81,7 @@
             <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
           </span>
           <%= form_tag ({controller: 'friends', action: 'remove', method: 'post', id: friend.id}) do %>
-            <input class="" type=submit value='Remove'>
+            <input class="btn btn-outline-danger btn-sm mt-2" type=submit value='Remove'>
           <% end %>
         </div>
       <% end %>
