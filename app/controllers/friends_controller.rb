@@ -45,10 +45,14 @@ class FriendsController < ApplicationController
     @requests = @user.requested_friends
     @pending = @user.pending_friends
 
-    @search = params[:search].downcase
-    @results = User.all.select do |user|
-      user_fullname = user.firstname.downcase + " " + user.lastname.downcase
-      user_fullname == @search || user.email.downcase == @search
+    if params[:search]
+      @search = params[:search].downcase
+      @results = User.all.select do |user|
+        user_fullname = user.firstname.downcase + " " + user.lastname.downcase
+        user_fullname == @search || user.email.downcase == @search
+      end
+    else
+      redirect_to friends_path
     end
   end
 end
