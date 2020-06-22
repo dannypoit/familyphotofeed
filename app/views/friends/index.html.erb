@@ -18,12 +18,12 @@
               <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}" %>
             </span>
             <div class="d-flex">
-            <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
-              <input class="btn btn-outline-success btn-sm mt-2 mx-1" type=submit value='Accept'>
-            <% end %>
-            <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
-              <input class="btn btn-outline-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
-            <% end %>
+              <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
+                <input class="btn btn-outline-success btn-sm mt-2 mx-1" type=submit value='Accept'>
+              <% end %>
+              <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
+                <input class="btn btn-outline-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
+              <% end %>
             </div>
           </div>
         <% end %>
