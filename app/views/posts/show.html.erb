@@ -19,7 +19,15 @@
               <%= @post.caption %>
             </div>
             <div class="col-6 handle text-right">
-              Uploaded by: <%= @post.user.firstname %> <%= @post.user.lastname[0] %>.
+              Uploaded by: <br />
+              <% if @post.user.avatar.present? %>
+                <%= image_tag @post.user.avatar_url(:small_thumb), class: 'tiny-thumb' %>
+              <% else %>
+                <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
+              <% end %>
+              <span class="comment_handle">
+                <%= @post.user.firstname %> <%= @post.user.lastname[0] %>.
+              </span>
             </div>
           </div>
         </div>
