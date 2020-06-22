@@ -17,8 +17,12 @@
             <span class="bold">
               <%= "#{User.find(user).firstname} #{User.find(user).lastname}"  %>
             </span>
-            <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
-              <input class="btn btn-outline-success btn-sm mt-2" type=submit value='Invite to my family'>
+            <% if @pending.include?(user) %>
+              <p class="text-muted mt-2">You have already sent an invitation to this person and are waiting for them to Accept or Deny it.</p>
+            <% else %>
+              <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
+                <input class="btn btn-outline-success btn-sm mt-2" type=submit value='Invite to my family'>
+              <% end %>
             <% end %>
         <% end %>
       </div>

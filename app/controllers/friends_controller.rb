@@ -41,6 +41,9 @@ class FriendsController < ApplicationController
   end
 
   def search
+    @user = current_user
+    @pending = @user.pending_friends
+
     @search = params[:search].downcase
     @results = User.all.select do |user|
       user_fullname = user.firstname.downcase + " " + user.lastname.downcase
