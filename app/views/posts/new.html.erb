@@ -7,9 +7,8 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :photo %>
   <%= f.input :caption %>
-  <%= f.submit 'Post', class: 'btn btn-green' %>
+  <%= f.submit 'Post', class: 'btn btn-green d-inline-block' %>
+  <%= link_to 'Cancel', posts_path, class: 'btn btn-danger d-inline-block' %>
 <% end %>
-
-<%= link_to 'Back', posts_path %>
 
 </div>
