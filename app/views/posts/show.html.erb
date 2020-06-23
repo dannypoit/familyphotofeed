@@ -48,9 +48,7 @@
                 <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
               <% end %>
 
-              <span class="comment_handle">
-                <%= comment.user.firstname %> <%= comment.user.lastname[0] %>.
-              </span>:
+              <span class="comment_handle"><%= comment.user.firstname %> <%= comment.user.lastname[0] %>. <i class="fas fa-long-arrow-alt-right"></i></span>
 
               <%= comment.message %>
             </div>
