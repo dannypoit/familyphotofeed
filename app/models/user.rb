@@ -16,14 +16,14 @@ class User < ApplicationRecord
   end
 
   def friend_requests?
-      self.requested_friends.any?
+    self.requested_friends.any?
   end
 
   def requested_friends?
-      self.pending_friends.any?
+    self.pending_friends.any?
   end
 
   def invite_friend(user)
-      self.friend_request(user)
+    self.friend_request(user)
   end
 end

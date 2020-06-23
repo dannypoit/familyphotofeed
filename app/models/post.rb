@@ -7,11 +7,11 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
 
-  def next
+  def newer
     Post.where("id > ?", id).first
   end
 
-  def previous
+  def older
     Post.where("id < ?", id).last
   end
 end
