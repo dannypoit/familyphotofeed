@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
     return render_not_found if @post.blank?
+    return render_not_found(:forbidden) if @post.user != current_user && @post.user.friends_with?(current_user) == false
   end
 
   def new
