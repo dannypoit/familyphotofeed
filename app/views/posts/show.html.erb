@@ -1,9 +1,10 @@
 <div class="row" id="quiver">
   <div class="col-1" id="arrow">
-    <%= link_to @post.next do %>
+    <!-- Temporarily disabling Next and Previous links until I can figure out how to restrict it to posts from the user and their family members -->
+    <%#= link_to @post.next do %>
       <i class="fas fa-arrow-left fa-2x"></i><br />
       Newer
-    <% end %>
+    <%# end %> 
   </div>
 
   <div class="card col-10">
@@ -66,9 +67,10 @@
   </div>
 
   <div class="col-1" id="arrow">
-    <%= link_to @post.previous do %>
+    <!-- Temporarily disabling Next and Previous links until I can figure out how to restrict it to posts from the user and their family members -->
+    <%#= link_to @post.previous do %>
       <i class="fas fa-arrow-right fa-2x"></i><br />
       Older
-    <% end %>
+    <%# end %>
   </div>
 </div>
