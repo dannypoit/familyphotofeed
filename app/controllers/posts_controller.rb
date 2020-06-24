@@ -9,25 +9,17 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
 
     # create array containing user and all friends
-    @user_and_friends = []
-    @user_and_friends << current_user
+    user_and_friends = []
+    user_and_friends << current_user
     current_user.friends.each do |friend|
-      @user_and_friends << friend
+      user_and_friends << friend
     end
 
-    # check if newer post is nil and if user is in array
-    @newer_post = @post
-    while !@newer_post.newer.nil? && @user_and_friends.include?(@newer_post.newer.user) do
-      @newer_post = @newer_post.newer
-      break if @newer_post != @post
-    end
+    # all allowed posts for user
+    allowed_posts = Post.order(created_at: :desc).reject { |post| !user_and_friends.include?(post.user) }
 
-    # check if older post is not nil and if user is in array
-    @older_post = @post
-    while !@older_post.older.nil? && @user_and_friends.include?(@older_post.older.user) do
-      @older_post = @older_post.older
-      break if @older_post != @post
-    end
+    @newer_post = allowed_posts.select{|post| post.id > @post.id}.last
+    @older_post = allowed_posts.select{|post| post.id < @post.id}.first
 
     return render_not_found if @post.blank?
     return render_not_found(:forbidden) if @post.user != current_user && @post.user.friends_with?(current_user) == false

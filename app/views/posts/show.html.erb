@@ -1,6 +1,6 @@
 <div class="row" id="quiver">
   <div class="col-1" id="arrow">
-    <% if @newer_post != @post %>
+    <% if !@newer_post.nil? %>
       <%= link_to post_path(@newer_post) do %>
         <i class="fas fa-arrow-left fa-2x"></i><br />
         Newer
@@ -68,7 +68,7 @@
   </div>
 
   <div class="col-1" id="arrow">
-    <% if @older_post != @post %>
+    <% if !@older_post.nil? %>
       <%= link_to post_path(@older_post) do %>
         <i class="fas fa-arrow-right fa-2x"></i><br />
         Older

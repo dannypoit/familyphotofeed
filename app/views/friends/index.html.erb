@@ -36,7 +36,7 @@
       <h4 class="profile-heading">Pending requests:</h4>
       <% if @user.requested_friends? %>
         <% @pending.each do |friend| %>
-          <div class="family-avatar-container">
+          <div class="family-avatar-container mb-3">
             <% if User.find(friend).avatar.present? %>
               <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
             <% else %>
