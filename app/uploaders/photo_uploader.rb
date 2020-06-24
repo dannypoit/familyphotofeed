@@ -40,6 +40,23 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [150, 150]
   end
 
+  version :blurred do
+    process resize_to_fit: [150, 150]
+    process :blur
+  end
+
+  def blur(radius=16)
+    manipulate! do |img|
+      original_path = img.path
+      temp_image_path = File.join(Rails.root, 'public', cache_dir, "/blurred_#{File.basename(original_path)}")
+
+      command = "convert #{original_path} -blur 0x#{radius} #{temp_image_path}"
+      system(command)
+
+      MiniMagick::Image.open(temp_image_path)
+    end
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist
