@@ -59,7 +59,10 @@
           <br />
 
           <%= simple_form_for Comment.new, url: post_comments_path(@post) do |f| %>
-            <%= f.input :message, label: false %>
+            <%= f.input :message, 
+                        label: false,
+                        autofocus: true,
+                        hint: ("Maximum: 120 characters") %>
             <%= f.submit 'Add comment', class: 'btn btn-green btn-half' %>
           <% end %>
         </div>
