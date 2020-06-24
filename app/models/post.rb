@@ -6,12 +6,4 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :comments
-
-  def next
-    Post.where("id > ?", id).first
-  end
-
-  def previous
-    Post.where("id < ?", id).last
-  end
 end
