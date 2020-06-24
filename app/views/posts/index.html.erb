@@ -10,9 +10,10 @@
   <% else %>
     <%# might need to refactor this %>
     <div class="thumb-container">
-      <%= link_to post_path(post) do %>
-        <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag post.photo_url(:blurred), class: 'thumbnail' if post.photo.present? %>
       <% end %>
     </div>
   <% end %>
 <% end %>
+
