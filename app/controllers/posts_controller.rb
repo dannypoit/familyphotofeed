@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.create(post_params)
     if @post.valid?
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity
     end
