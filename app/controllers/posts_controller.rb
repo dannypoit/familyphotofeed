@@ -8,18 +8,25 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
 
-    @newer_post = @post.newer
-    if ! @newer_post.newer.nil?
-      while @newer_post.user != current_user || ! @newer_post.user.friends_with?(current_user)
-        @newer_post = @newer_post.newer
-      end
+    # create array containing user and all friends
+    @user_and_friends = []
+    @user_and_friends << current_user
+    current_user.friends.each do |friend|
+      @user_and_friends << friend
     end
 
-    @older_post = @post.older
-    if ! @older_post.older.nil?
-      while @older_post.user != current_user || ! @older_post.user.friends_with?(current_user)
-        @older_post = @older_post.older
-      end
+    # check if newer post is nil and if user is in array
+    @newer_post = @post
+    while !@newer_post.newer.nil? && @user_and_friends.include?(@newer_post.newer.user) do
+      @newer_post = @newer_post.newer
+      break if @newer_post != @post
+    end
+
+    # check if older post is not nil and if user is in array
+    @older_post = @post
+    while !@older_post.older.nil? && @user_and_friends.include?(@older_post.older.user) do
+      @older_post = @older_post.older
+      break if @older_post != @post
     end
 
     return render_not_found if @post.blank?
