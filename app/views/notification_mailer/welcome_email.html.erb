@@ -1,4 +1,4 @@
-<p>Hi Nancy,</p>
+<p>Hi <%= @user.firstname %>,</p>
 
 <p>Welcome to Family Photo Feed.</p>
 
@@ -8,12 +8,13 @@
   <li>Upload photos</li>
   <li>Invite people to your family</li>
   <li>Accept family requests from others</li>
-  <li>View and comment on photos uploaded by you and your family members</li>
+  <li>View photos uploaded by your family members</li>
+  <li>Comment on photos uploaded by you and your family members</li>
   <li>Upload your avatar and manage your profile</li>
 </ul>
 
 <p>Please feel free to bookmark the link below in your favorite browser to get back to the site:</p>
 
-<p>(URL goes here)</p>
+<p><%= link_to 'Family Photo Feed', root_url %></p>
 
 <p>Happy sharing!</p>
