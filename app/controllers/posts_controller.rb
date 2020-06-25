@@ -33,7 +33,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.create(post_params)
     if @post.valid?
       NotificationMailer.send_new_family_post_email(@post)
-
       redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity

@@ -2,8 +2,7 @@ Hi <%= @friend.firstname %>,
 
 <%= @user.firstname %> <%= @user.lastname[0] %>. has uploaded a new photo.
 
-Click the thumbnail below to see the full-size photo and add comments:
+Click the link below to see the full-size photo and add comments:
 
-<%= link_to post_url(@post) do %>
-  <%= @post.caption %>
-<% end %>
+<%= @post.caption %>
+<%= post_url(@post) %>

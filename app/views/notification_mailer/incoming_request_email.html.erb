@@ -1,0 +1,15 @@
+<p>Hi <%= @friend.firstname %>,</p>
+
+<p><%= @user.firstname %> <%= @user.lastname[0] %>. has invited you to join their family on Family Photo Feed.</p>
+
+<% if @friend.avatar.present? %>
+  <%= image_tag @friend.avatar_url(:thumb) %>
+<% else %>
+  <%= image_tag 'default_avatar.jpg' %>
+<% end %>
+
+<p>If you accept their request, you will be added to their family, and vice versa. Then, you will be able to view and comment on each other's uploaded photos.</p>
+
+<p>Please visit the link below to go to your Family page, where you can Accept or Deny this request. You may need to log in first if you are not already logged in.</p>
+
+<p><%= link_to 'My Family on Family Photo Feed', friends_url %></p>
