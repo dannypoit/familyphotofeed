@@ -62,6 +62,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Set default root path for assets
+  # This is so that the full URL of photos will show in the image tags in notification emails
   config.asset_host = 'http://localhost:3000'
 
   # Raises error for missing translations

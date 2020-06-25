@@ -7,14 +7,18 @@ class NotificationMailer < ApplicationMailer
     subject: "Welcome to Family Photo Feed, #{@user.firstname} (TEST)")
   end
 
-  def new_family_post_email(post)
+  def self.send_new_family_post_email(post)
+    @friends = post.user.friends
+    @friends.each do |friend|
+      new_family_post_email(friend, post).deliver
+    end
+  end
+
+  def new_family_post_email(friend, post)
     @post = post
     @user = @post.user
-    @friends = @post.user.friends
-    @friends.each do |friend|
-      @friend = friend
-      mail(to: @friend.email,
-      subject: "#{@user.firstname} #{@post.user.lastname[0]}. has uploaded a new photo - Family Photo Feed (TEST)")
-    end
+    @friend = friend
+    mail(to: @friend.email,
+    subject: "#{@user.firstname} #{@user.lastname[0]}. has uploaded a new photo - Family Photo Feed (TEST)")
   end
 end

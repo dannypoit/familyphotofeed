@@ -5,6 +5,5 @@ Hi <%= @friend.firstname %>,
 Click the thumbnail below to see the full-size photo and add comments:
 
 <%= link_to post_url(@post) do %>
-  <%= image_tag @post.photo_url(:thumb) %>
   <%= @post.caption %>
 <% end %>
