@@ -6,4 +6,8 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :comments
+
+  def new_family_post_email
+    NotificationMailer.welcome_email(self).deliver_now
+  end
 end
