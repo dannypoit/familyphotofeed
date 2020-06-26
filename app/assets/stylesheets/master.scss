@@ -14,6 +14,7 @@ body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
   background-color: #fafafa;
+  margin-bottom: 50px;
 }
 
 a {
@@ -260,6 +261,9 @@ img {
   position: absolute;
   bottom: 0;
   width: 100%;
+  border-top-color: #edeeee;
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 
 // @media only screen and (max-width: 642px) {
