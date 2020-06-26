@@ -2,8 +2,8 @@
 
 <p><%= @user.firstname %> <%= @user.lastname[0] %>. has invited you to join their family on Family Photo Feed.</p>
 
-<% if @friend.avatar.present? %>
-  <%= image_tag @friend.avatar_url(:thumb) %>
+<% if @user.avatar.present? %>
+  <%= image_tag @user.avatar_url(:thumb) %>
 <% else %>
   <%= image_tag 'default_avatar.jpg' %>
 <% end %>

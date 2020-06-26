@@ -7,7 +7,9 @@ class NotificationMailer < ApplicationMailer
     subject: "Welcome to Family Photo Feed, #{@user.firstname} (TEST)")
   end
 
-  def self.send_incoming_request_email(user)
+  def self.send_incoming_request_email(friend, user)
+    @friend = friend
+    incoming_request_email(friend, user).deliver
   end
 
   def incoming_request_email(friend, user)
