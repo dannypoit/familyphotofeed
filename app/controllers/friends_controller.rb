@@ -20,7 +20,7 @@ class FriendsController < ApplicationController
     @user = current_user
     friend = User.find_by(id: params[:id])
     @user.accept_request(friend)
-
+    NotificationMailer.send_accepted_request_email(@user, friend)
     redirect_to friends_path
   end
 
