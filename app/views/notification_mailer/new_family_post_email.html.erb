@@ -1,0 +1,13 @@
+<p>Hi <%= @friend.firstname %>,</p>
+
+<p><%= @user.firstname %> <%= @user.lastname[0] %>. has uploaded a new photo.</p>
+
+<p>Click the thumbnail below to see the full-size photo and add comments:</p>
+
+<p>
+  <%= link_to post_url(@post) do %>
+    <%= image_tag @post.photo_url(:thumb) %>
+    <br />
+    <%= @post.caption %>
+  <% end %>
+</p>

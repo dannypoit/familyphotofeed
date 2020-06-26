@@ -5,11 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
-
   has_many :posts
   has_many :comments
-
   has_friendship
+  after_create :send_welcome_email
 
   def friends?
     self.friends
@@ -25,5 +24,9 @@ class User < ApplicationRecord
 
   def invite_friend(user)
     self.friend_request(user)
+  end
+
+  def send_welcome_email
+    NotificationMailer.welcome_email(self).deliver_now
   end
 end

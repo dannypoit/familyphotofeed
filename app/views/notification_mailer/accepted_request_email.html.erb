@@ -1,0 +1,15 @@
+<p>Hi <%= @friend.firstname %>,</p>
+
+<p><%= @user.firstname %> <%= @user.lastname[0] %>. has accepted your invitation to join their family on Family Photo Feed.</p>
+
+<% if @user.avatar.present? %>
+  <%= image_tag @user.avatar_url(:thumb) %>
+<% else %>
+  <%= image_tag 'default_avatar.jpg' %>
+<% end %>
+
+<p>You can now view and comment on each other's uploaded photos.</p>
+
+<p>Please visit the link below to see their uploaded photos now available on your home page. You may need to log in first if you are not already logged in.</p>
+
+<p><%= link_to 'Family Photo Feed', root_url %></p>
