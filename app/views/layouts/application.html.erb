@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <nav class="navbar navbar-light sticky-top navbar-expand-lg">
       <div class="container-sm">
         <%= link_to 'family', root_path, class: 'navbar-brand mr-1' %><%= link_to 'photo', root_path, class: 'navbar-brand navbar-brand-green mr-1' %><%= link_to 'feed', root_path, class: 'navbar-brand' %>
@@ -58,8 +58,18 @@
       </div>
     </nav>
 
-    <div class="container-fluid content-area">
-      <%= yield %>
-    </div>
+    <main role="main" class="">
+      <div class="container-fluid content-area">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer class="footer py-3 mt-auto">
+      <div class="container small">
+        <%= link_to 'Privacy Policy', privacy_path %>
+        <%= link_to 'Terms of Use', terms_path, class: 'ml-3' %>
+        <span class="text-muted float-right">&copy; 2020 Family Photo Feed</span>
+      </div>
+    </footer>
   </body>
 </html>
