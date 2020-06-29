@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
+    @comment = Comment.new
 
     # create array containing user and all friends
     user_and_friends = []
