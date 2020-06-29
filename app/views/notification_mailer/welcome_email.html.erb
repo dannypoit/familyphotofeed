@@ -1,6 +1,11 @@
-<p>Hi <%= @user.firstname %>,</p>
+<h3>Hi <%= @user.firstname %>,</h3>
 
-<p>Welcome to Family Photo Feed.</p>
+<p style="margin-bottom: 0;">Welcome to</p>
+<div class="brand">
+  <a href="<%= root_url %>">
+    <span class="mr-1 fpf-blue">family</span><span class="mr-1 fpf-green">photo</span><span class="fpf-blue">feed</span>
+  </a>
+</div>
 
 <p>You can now do the following:</p>
 <ul>
@@ -15,6 +20,6 @@
 
 <p>Please feel free to bookmark the link below in your favorite browser to get back to the site:</p>
 
-<p><%= link_to 'Family Photo Feed', root_url %></p>
+<%= link_to 'www.familyphotofeed.com', root_url, class: 'button' %>
 
-<p>Happy sharing!</p>
+<h3 style="margin-top: 20px;">Happy sharing!</h3>
