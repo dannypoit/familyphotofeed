@@ -1,6 +1,11 @@
-<p>Hi <%= @friend.firstname %>,</p>
+<h3>Hi <%= @friend.firstname %>,</h3>
 
-<p><%= @user.firstname %> <%= @user.lastname[0] %>. has invited you to join their family on Family Photo Feed.</p>
+<p style="margin-bottom: 0;"><strong><%= @user.firstname %> <%= @user.lastname[0] %>.</strong> has invited you to join their family on</p>
+<div class="brand mb-4">
+  <a href="<%= root_url %>">
+    <span class="mr-1 fpf-blue">family</span><span class="mr-1 fpf-green">photo</span><span class="fpf-blue">feed</span>
+  </a>
+</div>
 
 <% if @user.avatar.present? %>
   <%= image_tag @user.avatar_url(:thumb) %>
@@ -12,4 +17,4 @@
 
 <p>Please visit the link below to go to your Family page, where you can Accept or Deny this request. You may need to log in first if you are not already logged in.</p>
 
-<p><%= link_to 'My Family on Family Photo Feed', friends_url %></p>
+<p><%= link_to 'My Family on Family Photo Feed', friends_url, class: 'button' %></p>
