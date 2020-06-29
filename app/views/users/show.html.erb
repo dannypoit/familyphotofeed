@@ -2,7 +2,8 @@
 
 <div class="col-10 offset-1">
   <div class="row">
-    <div class="col-3">
+
+    <div class="col-12 col-md-6">
       <div>
         <% if @user.avatar.present? %>
           <%= image_tag @user.avatar_url(:thumb), class: 'avatar' %>
@@ -15,7 +16,7 @@
       </div>
     </div>
 
-    <div class="col-6 user-info">
+    <div class="col-12 col-md-6 user-info">
       <br />
       Name: <span class="bold"><%= @user.firstname %> <%= @user.lastname %></span>
       <br /><br />
@@ -28,20 +29,6 @@
       </div>
     </div>
 
-    <div class="col-3">
-      <br />
-      Account type: Free
-      <br />
-      <button type="button" class="btn btn-green profile-btn btn-upgrade" data-toggle="modal" data-target="#adFreeModal">
-        Upgrade to Ad-free
-      </button>
-      <br /><br />
-      Email notifications: <span class="bold">On</span>
-      <br /><br />
-      Frequency: <span class="bold">Each new photo</span>
-      <br /><br />
-      Name format: <span class="bold">First name, last initial</span>
-    </div>
   </div>
 </div>
 
@@ -58,29 +45,9 @@
       <div class="thumb-container">
         <%= link_to post_path(post) do %>
           <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
-        <% end %>
+        <% end %> 
       </div>
     <% end %>
   <% end %>
 
-</div>
-
-<!-- Ad-free Modal -->
-<div class="modal fade" id="adFreeModal" tabindex="-1" role="dialog" aria-labelledby="adFreeModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="adFreeModalLabel">Ad-free</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Coming soon: You will be able to pay a small monthly fee to use this site without any advertisements.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>
