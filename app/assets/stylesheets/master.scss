@@ -5,10 +5,16 @@
 //   border: 1px solid lightgray;
 // }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
   background-color: #fafafa;
+  margin-bottom: 50px;
 }
 
 a {
@@ -248,6 +254,16 @@ img {
 
 .form-inline label {
   margin-right: 5px;
+}
+
+.footer {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top-color: #edeeee;
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 
 // @media only screen and (max-width: 642px) {

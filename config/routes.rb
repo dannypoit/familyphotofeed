@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "/friends/remove" => "friends/remove"
   get "/friends/search" => "friends/search"
   post "/friends/search" => "friends/search"
+  get '/privacy-policy', to: 'static_pages#privacy', as: 'privacy'
+  get '/terms-of-use', to: 'static_pages#terms', as: 'terms'
   resources :posts do
     resources :comments, only: :create
   end
