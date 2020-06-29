@@ -15,7 +15,7 @@ class NotificationMailer < ApplicationMailer
     @friend = friend
     @user = user
     mail(to: @friend.email,
-    subject: "#{user.firstname} #{@user.lastname[0]}. has invited you to join their family on Family Photo Feed (TEST)")
+    subject: "#{user.firstname} #{@user.lastname[0]}. has invited you to join their family on Family Photo Feed")
   end
 
   def self.send_accepted_request_email(user, friend)
