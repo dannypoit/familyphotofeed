@@ -1,13 +1,18 @@
-<p>Hi <%= @friend.firstname %>,</p>
+<h3>Hi <%= @friend.firstname %>,</h3>
 
-<p><%= @user.firstname %> <%= @user.lastname[0] %>. has uploaded a new photo.</p>
+<p style="margin-bottom: 0;"><strong><%= @user.firstname %> <%= @user.lastname[0] %>.</strong> has uploaded a new photo on</p>
+<div class="brand mb-4">
+  <a href="<%= root_url %>">
+    <span class="mr-1 fpf-blue">family</span><span class="mr-1 fpf-green">photo</span><span class="fpf-blue">feed</span>
+  </a>
+</div>
 
 <p>Click the thumbnail below to see the full-size photo and add comments:</p>
 
+<%= link_to post_url(@post) do %>
+  <%= image_tag @post.photo_url(:thumb) %>
+<% end %>
+
 <p>
-  <%= link_to post_url(@post) do %>
-    <%= image_tag @post.photo_url(:thumb) %>
-    <br />
-    <%= @post.caption %>
-  <% end %>
+  Caption: <strong><%= @post.caption %></strong>
 </p>
