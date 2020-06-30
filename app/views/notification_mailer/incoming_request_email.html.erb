@@ -9,8 +9,6 @@
 
 <% if @user.avatar.present? %>
   <%= image_tag @user.avatar_url(:thumb) %>
-<% else %>
-  <%= image_tag 'default_avatar.jpg' %>
 <% end %>
 
 <p>If you accept their request, you will be added to their family, and vice versa. Then, you will be able to view and comment on each other's uploaded photos.</p>

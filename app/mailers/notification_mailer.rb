@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: 'no-reply@familyphotofeed.com'
+  default from: 'Family Photo Feed <no-reply@familyphotofeed.com>'
 
   def welcome_email(user)
     @user = user
