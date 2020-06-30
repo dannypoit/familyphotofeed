@@ -11,8 +11,7 @@
 
 <%= link_to post_url(@post) do %>
   <%= image_tag @post.photo_url(:thumb) %>
+  <p style="margin-top: 0;"><strong><%= @post.caption %></strong></p>
 <% end %>
 
-<p>
-  Caption: <strong><%= @post.caption %></strong>
-</p>
+<p>You may need to log in first if you are not already logged in.</p>
