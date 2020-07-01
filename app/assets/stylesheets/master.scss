@@ -270,11 +270,11 @@ img {
   border-top-style: solid;
 }
 
-// @media only screen and (max-width: 642px) {
-//   .navbar-brand {
-//     font-size: 1.7em;
-//   }
-// }
+@media only screen and (max-width: 418px) {
+  .navbar-brand {
+    font-size: 1.5em;
+  }
+}
 
 // @media only screen and (min-width: 643px) {
 //   .navbar-brand {
