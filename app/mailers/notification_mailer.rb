@@ -26,7 +26,7 @@ class NotificationMailer < ApplicationMailer
     @user = user
     @friend = friend
     mail(to: @friend.email,
-    subject: "#{user.firstname} #{@user.lastname[0]}. has accepted your invitation to join their family on Family Photo Feed (TEST)")
+    subject: "#{user.firstname} #{@user.lastname[0]}. has accepted your invitation to join their family on Family Photo Feed")
   end
 
   def self.send_new_family_post_email(post)
@@ -41,6 +41,6 @@ class NotificationMailer < ApplicationMailer
     @user = @post.user
     @friend = friend
     mail(to: @friend.email,
-    subject: "#{@user.firstname} #{@user.lastname[0]}. has uploaded a new photo to Family Photo Feed (TEST)")
+    subject: "#{@user.firstname} #{@user.lastname[0]}. has uploaded a new photo to Family Photo Feed")
   end
 end
