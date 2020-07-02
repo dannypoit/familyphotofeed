@@ -1,27 +1,25 @@
-<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-4 card form">
-  <h2>Change password</h2>
-
-  <br />
+<div class="form-reg">
+  <h2 class="mb-4">Change password</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
+    <div class="text-left">
       <%= f.input :current_password,
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :password,
                   required: false,
+                  label: 'New password',
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: false,
+                  label: 'New password (again)',
                   input_html: { autocomplete: "new-password" } %>
-      </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Update", class: 'btn btn-green' %>
     </div>
+
+    <%= f.button :submit, "Update", class: 'btn btn-green btn-300 my-4' %>
   <% end %>
 
-  <%= link_to "Back", :back %>
+  <%= link_to 'Cancel', :back, class: 'btn btn-outline-blue btn-sm mt-3' %>
 </div>
