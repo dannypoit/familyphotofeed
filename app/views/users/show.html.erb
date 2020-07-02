@@ -10,7 +10,7 @@
           <%= image_tag 'default_avatar.jpg', class: 'avatar img-fluid' %>
         <% end %>
       </div>
-      <%= link_to 'Change avatar', change_avatar_path(current_user.id), class: 'btn btn-blue btn-sm mt-2' %>
+      <%= link_to 'Change avatar', change_avatar_path(current_user.id), class: 'btn btn-outline-green btn-sm mt-2' %>
     </div>
 
     <div class="col-12 col-lg-5 col-xl-4 user-info">
@@ -20,8 +20,8 @@
       <div class="mb-3">
         E-mail: <strong><%= @user.email %></strong>
       </div>
-        <%= link_to 'Edit user info', edit_user_path(current_user.id), class: 'btn btn-blue btn-sm mr-2 mb-1' %>
-        <%= link_to 'Change password', edit_user_registration_path(current_user.id), class: 'btn btn-blue btn-sm mb-1' %>
+        <%= link_to 'Edit user info', edit_user_path(current_user.id), class: 'btn btn-outline-green btn-sm mr-2 mb-1' %>
+        <%= link_to 'Change password', edit_user_registration_path(current_user.id), class: 'btn btn-outline-green btn-sm mb-1' %>
     </div>
   </div>
 
