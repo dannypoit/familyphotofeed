@@ -9,13 +9,14 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "firstname" },
-                  label: 'First Name'%>
+                  label: 'First name'%>
       <%= f.input :lastname,
                   required: true,
                   input_html: { autocomplete: "lastname" },
-                  label: 'Last Name'%>
+                  label: 'Last name'%>
       <%= f.input :email,
                   required: true,
+                  label: 'E-mail',
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
@@ -23,6 +24,7 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
+                  label: 'Password (again)',
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :avatar,
                   required: false,

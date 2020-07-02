@@ -1,14 +1,19 @@
-<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-4 card form">
-  <h2>Edit user info</h2>
+<div class="form-reg">
+  <h2 class="mb-4">Edit user info</h2>
 
-  <br />
+  
+    <%= simple_form_for @user do |f| %>
+    <div class="text-left">
+      <%= f.input :firstname,
+                  label: 'First name' %>
+      <%= f.input :lastname,
+                  label: 'Last name' %>
+      <%= f.input :email,
+                  label: 'E-mail' %>
+    </div>
+      <%= f.button :submit, 'Update', class: 'btn btn-green btn-300 my-4' %>
+    <% end %>
+  
 
-  <%= simple_form_for @user do |f| %>
-    <%= f.input :firstname %>
-    <%= f.input :lastname %>
-    <%= f.input :email %>
-    <%= f.button :submit, 'Update', class: 'btn btn-green' %>
-  <% end %>
-
-  <%= link_to 'Back', user_path %>
+  <%= link_to 'Cancel', user_path, class: 'btn btn-outline-blue btn-sm mt-3' %>
 </div>
