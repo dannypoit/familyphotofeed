@@ -272,6 +272,18 @@ img {
   border-top-style: solid;
 }
 
+@media only screen and (max-width: 767px) {
+  .section {
+    border-right: 1px solid #fafafa;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .section {
+    border-right: 1px solid #f1f1f1;
+  }
+}
+
 @media only screen and (max-width: 418px) {
   .navbar-brand {
     font-size: 1.5em;

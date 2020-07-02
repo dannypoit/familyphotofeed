@@ -2,7 +2,7 @@
   <h2 class="mb-4">Family</h2>
 
   <div class="row mb-5">
-    <div class="col-12 col-md-4 mb-3">
+    <div class="col-12 col-md-4 mb-3 section">
       <h4 class="mb-4">Incoming requests:</h4>
       <% if @user.friend_requests? %>
         <% @requests.each do |friend| %>
@@ -34,7 +34,7 @@
       <% end %>
     </div>
 
-    <div class="col-12 col-md-4 mb-3">
+    <div class="col-12 col-md-4 mb-3 section">
       <h4 class="mb-4">Pending requests:</h4>
       <% if @user.requested_friends? %>
         <% @pending.each do |friend| %>
@@ -75,10 +75,9 @@
         <% else %>
           <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
         <% end %>
-        <br />
-        <span class="bold">
+        <strong class="d-block">
           <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
-        </span>
+        </strong>
         <%= form_tag ({controller: 'friends', action: 'remove', method: 'post', id: friend.id}) do %>
           <input class="btn btn-outline-danger btn-sm mt-2" type=submit value='Remove'>
         <% end %>
