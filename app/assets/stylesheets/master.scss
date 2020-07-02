@@ -1,9 +1,9 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
-// * {
-//   border: 1px solid lightgray;
-// }
+* {
+  border: 1px solid lightgray;
+}
 
 html {
   position: relative;
@@ -79,7 +79,6 @@ a {
 .form-upload {
   width: 100%;
   max-width: 600px;
-  padding: 15px;
   margin: auto;
 }
 
@@ -225,10 +224,6 @@ img {
 .edit-links a {
   font-size: 14px;
   margin-right: 10px;
-}
-
-.user-info {
-  width: 467px;
 }
 
 .profile-heading {
