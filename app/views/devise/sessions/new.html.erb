@@ -1,6 +1,7 @@
 <div class="form-reg">
+  <h2 class="mb-4">Log in</h2>
+
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <h2 class="mb-4">Log in</h2>
     <div>
       <%= f.input :email,
                   required: false,
@@ -17,12 +18,13 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <%= f.button :submit, "Log in", class: 'btn btn-blue my-4' %>
+    <%= f.button :submit, "Log in", class: 'btn btn-blue btn-300 my-4' %>
 
-    <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-green my-4' %>
+    <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-outline-green btn-sm mt-4 mr-2' %>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot password", new_password_path(resource_name), class: 'btn btn-outline-blue btn-sm mt-4' %>
+    <% end -%>
   <% end %>
 
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'btn btn-outline-blue btn-sm' %>
-  <% end -%>
+  
 </div>
