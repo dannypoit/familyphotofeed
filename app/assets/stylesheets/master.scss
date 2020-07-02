@@ -1,9 +1,9 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
-// * {
-//   border: 1px solid lightgray;
-// }
+* {
+  border: 1px solid lightgray;
+}
 
 html {
   position: relative;
@@ -14,7 +14,7 @@ body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
   background-color: #fafafa;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
 a {
@@ -59,7 +59,7 @@ a {
   }
 }
 
-.nav-link {
+.nav-link, strong, .strong {
   font-weight: 500;
 }
 
@@ -72,17 +72,15 @@ a {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(18, 86, 136, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
 } 
 
-.content-area {
-  padding: 30px;
-  text-align: center;
+.icons {
+  color: #125688;
 }
 
-strong {
-  font-weight: 500;
-}
-
-.bold {
-  font-weight: 500;
+.form-upload {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  margin: auto;
 }
 
 .post-header {
@@ -97,17 +95,9 @@ strong {
   margin-top: 70px;
 }
 
-.card.form {
-  padding: 20px;
-}
-
-label {
-  font-size: 18px;
-}
-
-input {
-  font-size: 18px;
-}
+// .card.form {
+//   padding: 20px;
+// }
 
 .profile-btn {
   font-size: 12px;
@@ -124,10 +114,21 @@ input {
 
 .btn-blue {
   background-color: #125688;
-  color: white;
+  color: #fff;
 
   &:hover {
     color: #5B92BA;
+  }
+}
+
+.btn-outline-blue {
+  border: 1px solid #125688;
+  background-color: #fff;
+  color: #125688;
+
+  &:hover {
+    background-color: #125688;
+    color: #fff;
   }
 }
 
@@ -140,8 +141,19 @@ input {
   }
 }
 
-.btn-half {
-  width: 50%;
+.btn-outline-green {
+  border: 1px solid #128856;
+  background-color: #fff;
+  color: #128856;
+
+  &:hover {
+    background-color: #128856;
+    color: #fff;
+  }
+}
+
+.btn-300 {
+  width: 300px;
 }
 
 .thumb-container {
