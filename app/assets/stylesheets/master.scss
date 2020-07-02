@@ -274,6 +274,24 @@ img {
   border-top-style: solid;
 }
 
+@media only screen and (max-width: 394px) {
+  .footer {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (min-width: 395px) {
+  .footer {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 418px) {
+  .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .section {
     border-right: 1px solid #fafafa;
@@ -283,12 +301,6 @@ img {
 @media only screen and (min-width: 767px) {
   .section {
     border-right: 1px solid #f1f1f1;
-  }
-}
-
-@media only screen and (max-width: 418px) {
-  .navbar-brand {
-    font-size: 1.5em;
   }
 }
 
