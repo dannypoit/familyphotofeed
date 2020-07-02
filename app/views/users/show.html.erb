@@ -5,9 +5,9 @@
     <div class="col-12 offset-0 col-lg-5 offset-lg-1 col-xl-4 offset-xl-2 mb-4">
       <div>
         <% if @user.avatar.present? %>
-          <%= image_tag @user.avatar_url(:thumb), class: 'avatar' %>
+          <%= image_tag @user.avatar_url(:thumb), class: 'avatar img-fluid' %>
         <% else %>
-          <%= image_tag 'default_avatar.jpg', class: 'avatar' %>
+          <%= image_tag 'default_avatar.jpg', class: 'avatar img-fluid' %>
         <% end %>
       </div>
       <%= link_to 'Change avatar', change_avatar_path(current_user.id), class: 'btn btn-blue btn-sm mt-2' %>
@@ -20,8 +20,8 @@
       <div class="mb-3">
         E-mail: <strong><%= @user.email %></strong>
       </div>
-        <%= link_to 'Edit user info', edit_user_path(current_user.id), class: 'btn btn-blue btn-sm mr-2' %>
-        <%= link_to 'Change password', edit_user_registration_path(current_user.id), class: 'btn btn-blue btn-sm' %>
+        <%= link_to 'Edit user info', edit_user_path(current_user.id), class: 'btn btn-blue btn-sm mr-2 mb-1' %>
+        <%= link_to 'Change password', edit_user_registration_path(current_user.id), class: 'btn btn-blue btn-sm mb-1' %>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
   <% if @user.posts.empty? %>
     <p>
       You have not uploaded any photos yet. Click
-      <span class="bold"><%= link_to 'Upload', new_post_path %></span> to go to the Upload page.
+      <strong><%= link_to 'Upload', new_post_path %></strong> to go to the Upload page.
     </p>
   <% else %>
     <% @user.posts.each do |post| %>
