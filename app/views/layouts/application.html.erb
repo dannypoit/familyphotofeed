@@ -60,16 +60,15 @@
       </nav>
     </header>
 
-    <main role="main" class="">
-      <div class="container-fluid content-area">
-        <%= yield %>
-      </div>
+    <main role="main" class="container-fluid text-center py-5">
+      <%= yield %>
     </main>
 
-    <footer class="footer py-3 mt-auto">
+    <footer class="footer py-3">
       <div class="container small">
         <%= link_to 'Privacy Policy', privacy_path %>
         <%= link_to 'Terms of Use', terms_path, class: 'ml-3' %>
+
         <span class="text-muted float-right">&copy; 2020 Family Photo Feed</span>
       </div>
     </footer>

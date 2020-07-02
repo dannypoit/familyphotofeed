@@ -1,9 +1,7 @@
-<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-4 card form">
-  <h2>Change avatar</h2>
+<div class="form-reg">
+  <h2 class="mb-4">Change avatar</h2>
 
-  <br />
-
-  <div>
+  <div class="mb-3">
     <% if @user.avatar.present? %>
       <%= image_tag @user.avatar_url(:thumb), class: 'avatar' %>
     <% else %>
@@ -11,12 +9,11 @@
     <% end %>
   </div>
 
-  <br />
-
   <%= simple_form_for @user do |f| %>
     <%= f.input :avatar, label: false %>
-    <%= f.submit 'Update', class: 'btn btn-green' %>
+    <%= f.submit 'Update', class: 'btn btn-green btn-300 mb-4' %>
   <% end %>
 
-  <%= link_to 'Back', user_path %>
+
+  <%= link_to 'Cancel', user_path, class: 'btn btn-outline-blue btn-sm mt-3' %>
 </div>

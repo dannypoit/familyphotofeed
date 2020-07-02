@@ -14,7 +14,7 @@ body {
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
   background-color: #fafafa;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
 a {
@@ -59,7 +59,7 @@ a {
   }
 }
 
-.nav-link {
+.nav-link, strong, .strong {
   font-weight: 500;
 }
 
@@ -72,17 +72,20 @@ a {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(18, 86, 136, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
 } 
 
-.content-area {
-  padding: 30px;
-  text-align: center;
+.icons {
+  color: #125688;
 }
 
-strong {
-  font-weight: 500;
+.form-reg {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
 }
 
-.bold {
-  font-weight: 500;
+.form-upload {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
 .post-header {
@@ -95,18 +98,6 @@ strong {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
   margin-top: 70px;
-}
-
-.card.form {
-  padding: 20px;
-}
-
-label {
-  font-size: 18px;
-}
-
-input {
-  font-size: 18px;
 }
 
 .profile-btn {
@@ -124,10 +115,21 @@ input {
 
 .btn-blue {
   background-color: #125688;
-  color: white;
+  color: #fff;
 
   &:hover {
     color: #5B92BA;
+  }
+}
+
+.btn-outline-blue {
+  border: 1px solid #125688;
+  background-color: #fff;
+  color: #125688;
+
+  &:hover {
+    background-color: #125688;
+    color: #fff;
   }
 }
 
@@ -140,8 +142,24 @@ input {
   }
 }
 
-.btn-half {
-  width: 50%;
+.btn-outline-green {
+  border: 1px solid #128856;
+  background-color: #fff;
+  color: #128856;
+
+  &:hover {
+    background-color: #128856;
+    color: #fff;
+  }
+}
+
+.btn-danger:hover {
+  background-color: #DC3545;
+  color: #e2a4aa;
+}
+
+.btn-300 {
+  width: 300px;
 }
 
 .thumb-container {
@@ -215,15 +233,6 @@ img {
   margin-right: 10px;
 }
 
-.user-info {
-  width: 467px;
-}
-
-.profile-heading {
-  margin-top: 35px;
-  margin-bottom: 20px;
-}
-
 .avatar {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -247,11 +256,6 @@ img {
   margin: 0 10px;
 }
 
-.family-members {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .form-inline .form-group {
   margin-bottom: 20px;
 }
@@ -270,9 +274,33 @@ img {
   border-top-style: solid;
 }
 
+@media only screen and (max-width: 394px) {
+  .footer {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (min-width: 395px) {
+  .footer {
+    font-size: 1em;
+  }
+}
+
 @media only screen and (max-width: 418px) {
   .navbar-brand {
     font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .section {
+    border-right: 1px solid #fafafa;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .section {
+    border-right: 1px solid #f1f1f1;
   }
 }
 

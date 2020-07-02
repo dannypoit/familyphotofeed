@@ -1,24 +1,30 @@
-<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-4 card form">
-  <h2>Log in</h2>
-  
-  <br />
+<div class="form-reg">
+  <h2 class="mb-4">Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
+    <div>
       <%= f.input :email,
                   required: false,
                   autofocus: true,
+                  label: false,
+                  placeholder: "E-mail address",
                   input_html: { autocomplete: "email" } %>
+
       <%= f.input :password,
                   required: false,
+                  label: false,
+                  placeholder: "Password",
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: 'btn btn-blue' %>
-    </div>
+    <%= f.button :submit, "Log in", class: 'btn btn-blue btn-300 my-4' %>
+
+    <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-outline-green btn-sm mt-4 mr-2' %>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot password", new_password_path(resource_name), class: 'btn btn-outline-blue btn-sm mt-4' %>
+    <% end -%>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  
 </div>

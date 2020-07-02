@@ -1,14 +1,11 @@
-<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-4 card form">
-
-<h1>Upload</h1>
-
-<br />
-
-<%= simple_form_for @post do |f| %>
-  <%= f.input :photo %>
-  <%= f.input :caption %>
-  <%= f.submit 'Post', class: 'btn btn-green d-inline-block' %>
-  <%= link_to 'Cancel', posts_path, class: 'btn btn-danger d-inline-block' %>
+<%= simple_form_for @post, html: { class: "form-upload" } do |f| %>
+  <h2 class="mb-4">Upload</h2>
+  <%= f.input :photo, label_html: { class: 'float-left' }, input_html: { class: 'btn btn-outline-green' }  %>
+  <%= f.input :caption, label_html: { class: 'float-left' }, input_html: { class: 'strong' } %>
+  <div class="d-flex justify-content-center mt-4">
+    <%= f.submit 'Post', class: 'btn btn-green btn-300 d-block d-justify-self-center mb-1' %>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to 'Cancel', posts_path, class: 'btn btn-outline-blue btn-300 d-block' %>
+  </div>
 <% end %>
-
-</div>
