@@ -1,10 +1,9 @@
-<h2 class="profile-heading">Family</h2>
+<div class="container">
+  <h2 class="mb-4">Family</h2>
 
-<div class="col-10 offset-1 family-members py-3">
-  <div class="row">
-
-    <div class="col-12 col-md-4">
-      <h4 class="profile-heading">Incoming requests:</h4>
+  <div class="row mb-5">
+    <div class="col-12 col-md-4 mb-3">
+      <h4 class="mb-4">Incoming requests:</h4>
       <% if @user.friend_requests? %>
         <% @requests.each do |friend| %>
           <div class="family-avatar-container mb-4">
@@ -13,17 +12,20 @@
             <% else %>
               <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
             <% end %>
-            <br />
-            <span class="bold">
+            <strong class="d-block">
               <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}" %>
-            </span>
-            <div class="d-flex">
-              <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
-                <input class="btn btn-outline-success btn-sm mt-2 mx-1" type=submit value='Accept'>
-              <% end %>
-              <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
-                <input class="btn btn-outline-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
-              <% end %>
+            </strong>
+            <div class="d-flex justify-content-center">
+              <div class="d-inline">
+                <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
+                  <input class="btn btn-green btn-sm mt-2 mx-1" type=submit value='Accept'>
+                <% end %>
+              </div>
+              <div class="d-inline">
+                <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
+                  <input class="btn btn-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
+                <% end %>
+              </div>
             </div>
           </div>
         <% end %>
@@ -32,20 +34,20 @@
       <% end %>
     </div>
 
-    <div class="col-12 col-md-4">
-      <h4 class="profile-heading">Pending requests:</h4>
+    <div class="col-12 col-md-4 mb-3">
+      <h4 class="mb-4">Pending requests:</h4>
       <% if @user.requested_friends? %>
         <% @pending.each do |friend| %>
-          <div class="family-avatar-container mb-3">
+          <div class="family-avatar-container mb-4">
             <% if User.find(friend).avatar.present? %>
               <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
             <% else %>
               <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
             <% end %>
             <br />
-            <span class="bold">
+            <strong>
               <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
-            </span>
+            </strong>
           </div>
         <% end %>
       <% else %>
@@ -53,38 +55,37 @@
       <% end %>
     </div>
 
-    <div class="col-12 col-md-4">
-      <h4 class="profile-heading">Find family members:</h4>
+    <div class="col-12 col-md-4 mb-3">
+      <h4 class="mb-4">Find family members:</h4>
       <%= form_tag ({controller: 'friends', action: 'search'}) do %>
-        <input type="text" name="search" id="search">
+        <input type="text" name="search" id="search" class="mb-1">
         <input class="btn btn-blue" type="submit" name="commit" value="Search" data-disable-with="Search">
       <% end %>
       <p class="text-muted small mt-2">Enter the first and last name or e-mail address of the family member you want to find</p>
     </div>
-
   </div>
-</div>
 
-<div class="col-10 offset-1 family-members py-3">
-  <h4 class="profile-heading">Your family:</h4>
-    <% if ! @user.friends.empty? %>
-      <% @friends.each do |friend| %>
-        <div class="d-inline-block m-3">
-          <% if User.find(friend).avatar.present? %>
-            <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
-          <% else %>
-            <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
-          <% end %>
-          <br />
-          <span class="bold">
-            <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
-          </span>
-          <%= form_tag ({controller: 'friends', action: 'remove', method: 'post', id: friend.id}) do %>
-            <input class="btn btn-outline-danger btn-sm mt-2" type=submit value='Remove'>
-          <% end %>
-        </div>
-      <% end %>
-    <% else %>
-      <p>You have not added any family members yet.</p>
+  <h4 class="mb-4">Your family:</h4>
+
+  <% if ! @user.friends.empty? %>
+    <% @friends.each do |friend| %>
+      <div class="d-inline-block m-3">
+        <% if User.find(friend).avatar.present? %>
+          <%= image_tag User.find(friend).avatar_url(:thumb), class: 'avatar family-avatar' %>
+        <% else %>
+          <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
+        <% end %>
+        <br />
+        <span class="bold">
+          <%= "#{User.find(friend).firstname} #{User.find(friend).lastname}"  %>
+        </span>
+        <%= form_tag ({controller: 'friends', action: 'remove', method: 'post', id: friend.id}) do %>
+          <input class="btn btn-outline-danger btn-sm mt-2" type=submit value='Remove'>
+        <% end %>
+      </div>
     <% end %>
+  <% else %>
+    <p>You have not added any family members yet.</p>
+  <% end %>
+
 </div>

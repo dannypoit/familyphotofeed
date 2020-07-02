@@ -151,6 +151,11 @@ a {
   }
 }
 
+.btn-danger:hover {
+  background-color: #DC3545;
+  color: #e2a4aa;
+}
+
 .btn-300 {
   width: 300px;
 }
@@ -226,11 +231,6 @@ img {
   margin-right: 10px;
 }
 
-.profile-heading {
-  margin-top: 35px;
-  margin-bottom: 20px;
-}
-
 .avatar {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -252,11 +252,6 @@ img {
 .family-avatar-container {
   display: inline-block;
   margin: 0 10px;
-}
-
-.family-members {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .form-inline .form-group {
