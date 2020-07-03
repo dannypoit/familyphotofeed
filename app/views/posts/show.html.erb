@@ -22,23 +22,22 @@
           <div class="col-6 text-right pr-0">
             Uploaded by:
             <div class="mt-0">
-              <% if @post.user.avatar.present? %>
-                <%= image_tag @post.user.avatar_url(:small_thumb), class: 'tiny-thumb' %>
-              <% else %>
-                <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
+              <div class="d-block mb-1">
+                <% if @post.user.avatar.present? %>
+                  <%= image_tag @post.user.avatar_url(:small_thumb), class: 'tiny-thumb' %>
+                <% else %>
+                  <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
+                <% end %>
+                <strong>
+                  <%= @post.user.firstname %> <%= @post.user.lastname[0] %>.
+                </strong>
+              </div>
+              <% if current_user && current_user == @post.user %>
+                <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-outline-green btn-sm' %>
+                <%= link_to 'Delete', @post, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
-              <strong>
-                <%= @post.user.firstname %> <%= @post.user.lastname[0] %>.
-              </strong>
             </div>
           </div>
-        </div>
-
-        <div class="float-right">
-          <% if current_user && current_user == @post.user %>
-            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-outline-green btn-sm' %>
-            <%= link_to 'Delete', @post, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
         </div>
 
         <div class="text-left mt-4">
