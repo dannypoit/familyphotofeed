@@ -1,9 +1,9 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
-// * {
-//   border: 1px solid lightgray;
-// }
+* {
+  border: 1px solid lightgray;
+}
 
 html {
   position: relative;
@@ -176,10 +176,6 @@ img {
 // this is the max height the textarea input for comments can be raised
 #comment_message {
   max-height: 108px;
-}
-
-.arrow {
-  padding-top: 18%; /* there must be a better way to do this */
 }
 
 .tiny-thumb {
