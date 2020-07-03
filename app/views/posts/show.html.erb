@@ -1,14 +1,14 @@
 <div class="row align-items-center">
-  <div class="col-1">
+  <div class="col-2 offset-4 col-sm-1 offset-sm-0 p-0 order-2 order-sm-1 mt-3">
     <% if !@newer_post.nil? %>
       <%= link_to post_path(@newer_post) do %>
-        <i class="fas fa-arrow-left fa-2x"></i><br />
+        <i class="fas fa-arrow-left fa-2x d-block"></i>
         <small>Newer</small>
       <% end %>
     <% end %>
   </div>
 
-  <div class="col-10 card p-0">
+  <div class="col-12 col-sm-10 card p-0 order-1 order-sm-2">
     <div class="row m-0">
       <div class="col-12 col-lg-6 pl-0 post-photo-container">
         <%= image_tag @post.photo, class: 'img-fluid' %>
@@ -71,10 +71,10 @@
     </div>
   </div>
 
-  <div class="col-1 arrow">
+  <div class="col-2 col-sm-1 p-0 order-3 order-sm-3 mt-3">
     <% if !@older_post.nil? %>
       <%= link_to post_path(@older_post) do %>
-        <i class="fas fa-arrow-right fa-2x"></i><br />
+        <i class="fas fa-arrow-right fa-2x d-block"></i>
         <small>Older</small>
       <% end %>
     <% end %>
