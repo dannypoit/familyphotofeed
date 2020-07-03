@@ -19,16 +19,20 @@
               <%= "#{User.find(user).firstname} #{User.find(user).lastname}"  %>
             </span>
             <% if @pending.include?(user) %>
-              <p class="text-muted mt-2">You have already sent an invitation to this person and are waiting for them to Accept or Deny it.</p>
+              <p class="text-muted mt-2 mb-0">You have already sent an invitation to this person and are waiting for them to Accept or Deny it.</p>
             <% elsif @requests.include?(user) %>
-              <p class="text-muted mt-2">You already have an incoming invitation from this person. Click below to Accept or Deny it.</p>
-              <div class="d-flex">
-                <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: user.id}) do %>
-                  <input class="btn btn-outline-success btn-sm mt-2 mx-1" type=submit value='Accept'>
-                <% end %>
-                <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: user.id}) do %>
-                  <input class="btn btn-outline-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
-                <% end %>
+              <p class="text-muted mt-2 mb-0">You already have an incoming invitation from this person. Click below to Accept or Deny it.</p>
+              <div class="d-flex justify-content-center">
+                <div class="d-inline">
+                  <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: user.id}) do %>
+                    <input class="btn btn-green btn-sm mt-2 mx-1" type=submit value='Accept'>
+                  <% end %>
+                </div>
+                <div class="d-inline">
+                  <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: user.id}) do %>
+                    <input class="btn btn-danger btn-sm mt-2 mx-1" type=submit value='Deny'>
+                  <% end %>
+                </div>
               </div>
             <% else %>
               <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
