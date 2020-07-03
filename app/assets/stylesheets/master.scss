@@ -1,9 +1,9 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
-* {
-  border: 1px solid lightgray;
-}
+// * {
+//   border: 1px solid lightgray;
+// }
 
 html {
   position: relative;
@@ -93,7 +93,6 @@ a {
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
-  margin-top: 70px;
 }
 
 .btn-blue {
@@ -167,24 +166,11 @@ a {
 
 img {
   margin: 5px;
-  max-height: 600px;
 }
 
-.img-container {
-  padding: 0;
-}
-
-.comments {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  width: 97%; /* there must be a better way to do this */
-  overflow: auto;
-  max-height: 500px;
-}
-
-.comment {
-  margin-top: 5px;
+// temp fix until I can figure out the margins/padding issue
+.post-photo-container {
+  padding-right: 10px;
 }
 
 // this is the max height the textarea input for comments can be raised
@@ -192,9 +178,8 @@ img {
   max-height: 108px;
 }
 
-#arrow {
+.arrow {
   padding-top: 18%; /* there must be a better way to do this */
-  font-size: 12px;
 }
 
 .tiny-thumb {
