@@ -146,8 +146,6 @@ a {
 
 .thumb-container {
   display: inline-block;
-  width: 180px;
-  height: 180px;
   position: relative;
 }
 
@@ -214,11 +212,28 @@ img {
   .footer {
     font-size: 0.8em;
   }
+
+  .thumb-container-size {
+    width: 120px;
+    height: 120px;
+    margin: 20px 10px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 @media only screen and (min-width: 395px) {
   .footer {
     font-size: 1em;
+  }
+
+  .thumb-container-size {
+    width: 180px;
+    height: 180px;
+    margin: auto;
   }
 }
 
