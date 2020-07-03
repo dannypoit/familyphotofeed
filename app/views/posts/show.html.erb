@@ -15,29 +15,29 @@
       </div>
 
       <div class="col w-50">
-        <div class="post-header">
-          <div class="row">
-            <div class="col-6 bold text-left">
-              <%= @post.caption %>
-            </div>
-            <div class="col-6 handle text-right">
-              Uploaded by: <br />
+        <div class="row">
+          <div class="col-6 text-left">
+            <strong><%= @post.caption %></strong>
+          </div>
+          <div class="col-6 text-right">
+            Uploaded by:
+            <div class="mt-0">
               <% if @post.user.avatar.present? %>
                 <%= image_tag @post.user.avatar_url(:small_thumb), class: 'tiny-thumb' %>
               <% else %>
                 <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
               <% end %>
-              <span class="comment_handle">
+              <strong>
                 <%= @post.user.firstname %> <%= @post.user.lastname[0] %>.
-              </span>
+              </strong>
             </div>
           </div>
         </div>
 
-        <div class="bold post-actions text-right">
+        <div class="float-right">
           <% if current_user && current_user == @post.user %>
-            <%= link_to 'Edit', edit_post_path(@post) %>
-            <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-outline-green btn-sm' %>
+            <%= link_to 'Delete', @post, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </div>
 
@@ -50,7 +50,7 @@
                 <%= image_tag 'default_avatar_small.png', class: 'tiny-thumb' %>
               <% end %>
 
-              <span class="comment_handle"><%= comment.user.firstname %> <%= comment.user.lastname[0] %>. <i class="fas fa-long-arrow-alt-right"></i></span>
+              <strong><%= comment.user.firstname %> <%= comment.user.lastname[0] %>. <i class="fas fa-long-arrow-alt-right"></i></strong>
 
               <%= comment.message %>
             </div>

@@ -1,9 +1,9 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
-// * {
-//   border: 1px solid lightgray;
-// }
+* {
+  border: 1px solid lightgray;
+}
 
 html {
   position: relative;
@@ -88,29 +88,12 @@ a {
   margin: auto;
 }
 
-.post-header {
-  padding: 10px;
-}
-
 .card {
   background-color: #fff;
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
   margin-top: 70px;
-}
-
-.profile-btn {
-  font-size: 12px;
-  margin-top: 0;
-}
-
-.btn-upgrade {
-  width: 160px;
-}
-
-.btn-invite {
-  width: 200px;
 }
 
 .btn-blue {
@@ -191,12 +174,6 @@ img {
   padding: 0;
 }
 
-.post-actions a {
-  font-size: 14px;
-  margin-right: 10px;
-  margin-left: auto;
-}
-
 .comments {
   padding: 20px;
   position: absolute;
@@ -210,11 +187,7 @@ img {
   margin-top: 5px;
 }
 
-.comment_handle {
-  color: #125688;
-  font-weight: 500;
-}
-
+// this is the max height the textarea input for comments can be raised
 #comment_message {
   max-height: 108px;
 }
@@ -226,11 +199,6 @@ img {
 
 .tiny-thumb {
   border-radius: .25rem;
-}
-
-.edit-links a {
-  font-size: 14px;
-  margin-right: 10px;
 }
 
 .avatar {
@@ -254,14 +222,6 @@ img {
 .family-avatar-container {
   display: inline-block;
   margin: 0 10px;
-}
-
-.form-inline .form-group {
-  margin-bottom: 20px;
-}
-
-.form-inline label {
-  margin-right: 5px;
 }
 
 .footer {
@@ -303,21 +263,3 @@ img {
     border-right: 1px solid #f1f1f1;
   }
 }
-
-// @media only screen and (min-width: 643px) {
-//   .navbar-brand {
-//     font-size: 1.8em;
-//   }
-// }
-
-// @media only screen and (min-width: 795px) {
-//   .navbar-brand {
-//     font-size: 1.9em;
-//   }
-// }
-
-// @media only screen and (min-width: 1340px) {
-//   .navbar-brand {
-//     font-size: 2.25em;
-//   }
-// }
