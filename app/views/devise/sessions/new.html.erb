@@ -1,4 +1,4 @@
-<div class="form-reg">
+<div class="form-reg py-5">
   <h2 class="mb-4">Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,6 +25,4 @@
       <%= link_to "Forgot password", new_password_path(resource_name), class: 'btn btn-outline-blue btn-sm mt-4' %>
     <% end -%>
   <% end %>
-
-  
 </div>

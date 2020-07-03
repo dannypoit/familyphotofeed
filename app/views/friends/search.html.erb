@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
   <h2 class="mb-4">Search results</h2>
 
   <div class="family-members mb-4">
@@ -7,7 +7,7 @@
       <p><strong>NOTE:</strong> Your search must match either the <u>first AND last name</u> or the <u>full e-mail address</u> of the family member you are trying to find.</p>
     <% else %>
       <% @results.each do |user| %>
-        <% if user.firstname != current_user.firstname %>
+        <% if user.firstname != current_user.firstname && user.lastname != current_user.lastname %>
           <div class="family-avatar-container d-inline-block m-3">
             <% if User.find(user).avatar.present? %>
               <%= image_tag User.find(user).avatar_url(:thumb), class: 'avatar family-avatar' %>
@@ -15,9 +15,9 @@
               <%= image_tag 'default_avatar.jpg', class: 'avatar family-avatar' %>
             <% end %>
             <br />
-            <span class="bold">
+            <strong>
               <%= "#{User.find(user).firstname} #{User.find(user).lastname}"  %>
-            </span>
+            </strong>
             <% if @pending.include?(user) %>
               <p class="text-muted mt-2 mb-0">You have already sent an invitation to this person and are waiting for them to Accept or Deny it.</p>
             <% elsif @requests.include?(user) %>
@@ -40,6 +40,9 @@
               <% end %>
             <% end %>
           </div>
+        <% else %>
+          <p class="lead"><strong>No results found</strong></p>
+          <p><strong>NOTE:</strong> Search results will not include yourself or users currently added to your family.</p>
         <% end %>
       <% end %>
     <% end %>

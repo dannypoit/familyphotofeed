@@ -1,11 +1,13 @@
-<%= simple_form_for @post, html: { class: "form-upload" } do |f| %>
-  <h2 class="mb-4">Upload</h2>
-  <%= f.input :photo, label_html: { class: 'float-left' }, input_html: { class: 'btn btn-outline-green' }  %>
-  <%= f.input :caption, label_html: { class: 'float-left' }, input_html: { class: 'strong' } %>
-  <div class="d-flex justify-content-center mt-4">
-    <%= f.submit 'Post', class: 'btn btn-green btn-300 d-block d-justify-self-center mb-2' %>
-  </div>
-  <div class="d-flex justify-content-center">
-    <%= link_to 'Cancel', posts_path, class: 'btn btn-outline-blue btn-300 d-block' %>
-  </div>
-<% end %>
+<div class="py-5">
+  <%= simple_form_for @post, html: { class: "form-upload" } do |f| %>
+    <h2 class="mb-4">Upload</h2>
+    <%= f.input :photo, label_html: { class: 'float-left' }, input_html: { class: 'btn btn-outline-green' }  %>
+    <%= f.input :caption, label_html: { class: 'float-left' }, input_html: { class: 'strong' } %>
+    <div class="d-flex justify-content-center mt-4">
+      <%= f.submit 'Post', class: 'btn btn-green btn-300 d-block d-justify-self-center mb-2' %>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= link_to 'Cancel', posts_path, class: 'btn btn-outline-blue btn-300 d-block' %>
+    </div>
+  <% end %>
+</div>
