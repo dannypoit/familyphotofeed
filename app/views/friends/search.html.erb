@@ -5,9 +5,13 @@
     <% if @results == [] %>
       <p class="lead"><strong>No results found</strong></p>
       <p><strong>NOTE:</strong> Your search must match either the <u>first AND last name</u> or the <u>full e-mail address</u> of the family member you are trying to find.</p>
+      <%= image_tag 'anything.gif', class: 'img-fluid' %>
     <% else %>
       <% @results.each do |user| %>
-        <% if user.firstname != current_user.firstname && user.lastname != current_user.lastname %>
+        <% if user.firstname == current_user.firstname && user.lastname == current_user.lastname || user.email == current_user.email %>
+          <p class="lead"><strong>You have searched for yourself.</strong></p>
+          <%= image_tag 'yourself.gif', class: 'img-fluid' %>
+        <% else %>
           <div class="family-avatar-container d-inline-block m-3">
             <% if User.find(user).avatar.present? %>
               <%= image_tag User.find(user).avatar_url(:thumb), class: 'avatar family-avatar' %>
@@ -19,10 +23,11 @@
               <%= "#{User.find(user).firstname} #{User.find(user).lastname}"  %>
             </strong>
             <% if @pending.include?(user) %>
-              <p class="text-muted mt-2 mb-0">You have already sent an invitation to this person and are waiting for them to Accept or Deny it.</p>
+              <p class="text-muted mt-2">You have already sent an invitation to this person and are waiting for them to Accept or Deny it.</p>
+              <%= image_tag 'waiting.gif', class: 'img-fluid' %>
             <% elsif @requests.include?(user) %>
               <p class="text-muted mt-2 mb-0">You already have an incoming invitation from this person. Click below to Accept or Deny it.</p>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center mb-4">
                 <div class="d-inline">
                   <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: user.id}) do %>
                     <input class="btn btn-green btn-sm mt-2 mx-1" type=submit value='Accept'>
@@ -34,15 +39,16 @@
                   <% end %>
                 </div>
               </div>
+              <%= image_tag 'offer.gif', class: 'img-fluid' %>
+            <% elsif @friends.include?(user) %>
+              <p class="text-muted mt-2">This person has already been added to your family.</p>
+              <%= image_tag 'already.gif', class: 'img-fluid' %>
             <% else %>
               <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
                 <input class="btn btn-outline-success btn-sm mt-2" type=submit value='Invite to my family'>
               <% end %>
             <% end %>
           </div>
-        <% else %>
-          <p class="lead"><strong>No results found</strong></p>
-          <p><strong>NOTE:</strong> Search results will not include yourself or users currently added to your family.</p>
         <% end %>
       <% end %>
     <% end %>

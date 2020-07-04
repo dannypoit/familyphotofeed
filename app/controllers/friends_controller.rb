@@ -44,6 +44,7 @@ class FriendsController < ApplicationController
     @user = current_user
     @requests = @user.requested_friends
     @pending = @user.pending_friends
+    @friends = @user.friends
 
     if params[:search]
       @search = params[:search].downcase
