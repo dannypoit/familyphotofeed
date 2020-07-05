@@ -42,7 +42,7 @@
               <%= image_tag 'offer.gif', class: 'img-fluid' %>
             <% elsif @friends.include?(user) %>
               <p class="text-muted mt-2">This person has already been added to your family.</p>
-              <%= image_tag 'already.gif', class: 'img-fluid' %>
+              <%= image_tag 'family.gif', class: 'img-fluid' %>
             <% else %>
               <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
                 <input class="btn btn-outline-success btn-sm mt-2" type=submit value='Invite to my family'>
