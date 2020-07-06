@@ -10,7 +10,6 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    # will add functionality later to blur out thumbnails and make them inaccessible when not logged in
     it "should successfully show the index page if a user is not logged in" do
       get :index
       expect(response).to have_http_status(:success)
@@ -20,8 +19,8 @@ RSpec.describe PostsController, type: :controller do
       get :index
 
       thumbnail_upload_dates = []
-      @posts = Post.order(created_at: :desc)
-      @posts.each do |post|
+      posts = Post.order(created_at: :desc)
+      posts.each do |post|
         thumbnail_upload_dates << post.created_at
       end
 
@@ -34,7 +33,43 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "posts#show action" do
-    # add tests to show post if posted by user or family
+    it "should return successfully if a user views a post that was posted by themselves" do
+      user = FactoryBot.create(:user)
+      sign_in user
+
+      post :create, params: {
+        post: {
+          user_id: user.id,
+          caption: 'Test',
+          photo: fixture_file_upload('/picture.png', 'image/png')
+        }
+      }
+
+      post = Post.last
+
+      get :show, params: { id: post.id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should return successfully if a user views a post that was posted by a user in their family" do
+      user1 = FactoryBot.create(:user)
+      user2 = FactoryBot.create(:user)
+      sign_in user1
+      post :create, params: {
+        post: {
+          user_id: user1.id,
+          caption: 'User 1 Test Post',
+          photo: fixture_file_upload('/picture.png', 'image/png')
+        }
+      }
+      post = Post.last
+      user1.friend_request(user2)
+      sign_out user1
+      sign_in user2
+      user2.accept_request(user1)
+      get :show, params: { id: post.id }
+      expect(response).to have_http_status(:success)
+    end
 
     it "should return a 403 error if a user tries to view a post that was posted by someone other than the user or their family" do
       post = FactoryBot.create(:post)
