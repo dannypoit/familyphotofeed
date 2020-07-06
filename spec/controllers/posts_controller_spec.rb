@@ -36,7 +36,6 @@ RSpec.describe PostsController, type: :controller do
     it "should return successfully if a user views a post that was posted by themselves" do
       user = FactoryBot.create(:user)
       sign_in user
-
       post :create, params: {
         post: {
           user_id: user.id,
@@ -44,9 +43,7 @@ RSpec.describe PostsController, type: :controller do
           photo: fixture_file_upload('/picture.png', 'image/png')
         }
       }
-
       post = Post.last
-
       get :show, params: { id: post.id }
       expect(response).to have_http_status(:success)
     end
@@ -179,7 +176,7 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "posts#update action" do
-    it "shouldn't let users who didn't create the gram update it" do
+    it "shouldn't let users who didn't create the post update it" do
       post = FactoryBot.create(:post)
       user = FactoryBot.create(:user)
       sign_in user
