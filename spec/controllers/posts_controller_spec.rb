@@ -34,13 +34,15 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "posts#show action" do
-    it "should successfully show the post if a user is logged in and the post is found" do
+    # add tests to show post if posted by user or family
+
+    it "should return a 403 error if a user tries to view a post that was posted by someone other than the user or their family" do
       post = FactoryBot.create(:post)
       user = FactoryBot.create(:user)
       sign_in user
-
+      
       get :show, params: { id: post.id }
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:forbidden)
     end
 
     it "should return a 404 error if a user is logged in but the post is not found" do
@@ -91,9 +93,10 @@ RSpec.describe PostsController, type: :controller do
         }
       }
 
-      expect(response).to redirect_to root_path
-
       post = Post.last
+
+      expect(response).to redirect_to post_path(post)
+      
       expect(post.caption).to eq("Test")
       expect(post.user).to eq(user)
     end
