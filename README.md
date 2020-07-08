@@ -21,6 +21,18 @@ Creating a user will allow you to do the following:
 * Comment on photos uploaded by you and your family members
 * Upload your avatar and manage your profile
 
+## Upload
+
+Click the 'Upload' link to upload a photo and create a new post.
+
+![](https://github.com/dannypoit/familyphotofeed/blob/master/app/assets/images/demo-upload.gif "Upload page")
+
+You will be prompted to select the photo from your computer and to enter a caption. (Currently, a caption is required to upload a photo, however this may change at a later date.) Once uploaded, your photo will be displayed on your home page and on the home pages of all users added to your family.
+
+### Comments
+
+To add a comment to a post, scroll to the text input box either to the right or below the photo. Type your comment into the text field, then click 'Add comment'. Your comment will be displayed, along with any other comments that have been added to that post.
+
 ## Profile
 
 Click the 'Profile' link to manage your user profile.
@@ -38,18 +50,6 @@ Click the 'Family' link to manage your family, which is like your "friends list.
 Here you can accept or deny incoming requests, view pending requests that you have sent, and search for users to send requests to. Once a user has been added to your family, they will be displayed under "Your family," and their uploaded photos will automatically be shown on your home page (by clicking the "Family Photo Feed" logo). Users can be removed from your family at any time.
 
 Note: If you have incoming requests, a red bage with the number of requests will be displayed in the navigation bar next to the 'Family' link.
-
-## Upload
-
-Click the 'Upload' link to upload a photo and create a new post.
-
-![](https://github.com/dannypoit/familyphotofeed/blob/master/app/assets/images/demo-upload.gif "Upload page")
-
-You will be prompted to select the photo from your computer and to enter a caption. (Currently, a caption is required to upload a photo, however this may change at a later date.) Once uploaded, your photo will be displayed on your home page and on the home pages of all users added to your family.
-
-### Comments
-
-To add a comment to a post, scroll to the text input box either to the right or below the photo. Type your comment into the text field, then click 'Add comment'. Your comment will be displayed, along with any other comments that have been added to that post.
 
 ## RSpec
 
