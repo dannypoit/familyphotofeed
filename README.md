@@ -25,7 +25,7 @@ Creating a user will allow you to do the following:
 
 Click the 'Profile' link to manage your user profile.
 
-![](https://github.com/dannypoit/familyphotofeed/blob/master/app/assets/images/demo-profile.jpg "Family page")
+<img src="https://github.com/dannypoit/familyphotofeed/blob/master/app/assets/images/demo-profile.jpg" width="640px" height="320px" alt="Profile page">
 
 Here you can edit your user info, change your password, change your avatar, and view all of the photos you have uploaded.
 
