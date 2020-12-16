@@ -1,7 +1,7 @@
 <div class="mt-3 mt-sm-0 py-0 py-sm-5">
   <% @posts.each do |post| %>
     <% if current_user %>
-      <% if post.user == current_user || post.user.friends_with?(current_user) %>
+      <% if post.user == current_user %>
         <div class="thumb-container thumb-container-size">
           <%= link_to post_path(post) do %>
             <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
