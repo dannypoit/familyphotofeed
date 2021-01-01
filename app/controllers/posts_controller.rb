@@ -3,6 +3,15 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order(created_at: :desc)
+
+    # create array containing user and all friends
+    user_and_friends = []
+    user_and_friends << current_user
+    current_user.friends.each do |friend|
+      user_and_friends << friend
+    end
+
+    @allowed_posts = Post.order(created_at: :desc).reject { |post| !user_and_friends.include?(post.user) }
   end
 
   def show

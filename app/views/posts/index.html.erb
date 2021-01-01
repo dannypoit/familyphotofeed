@@ -1,23 +1,19 @@
 <div class="mt-3 mt-sm-0 py-0 py-sm-5">
-  <% @posts.each do |post| %>
-    <% if current_user %>
-      <% if post.user == current_user %>
-        <div class="thumb-container thumb-container-size">
-          <%= link_to post_path(post) do %>
-            <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
-          <% end %>
-        </div>
-      <% end %>
-    <% else %>
+  <% if current_user %>
+    <% @allowed_posts.each do |post| %>
+      <div class="thumb-container thumb-container-size">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.photo_url(:thumb), class: 'thumbnail' if post.photo.present? %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <% @posts.each do |post| %>
       <div class="thumb-container thumb-container-size">
         <%= link_to new_user_session_path do %>
           <%= image_tag post.photo_url(:blurred), class: 'thumbnail mr-4' if post.photo.present? %>
         <% end %>
       </div>
     <% end %>
-  <% end %>
-
-  <% if current_user %>
-    <p class="text-muted">Family members' photos are temporarily disabled on the index while I fix something.</p>
   <% end %>
 </div>
