@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  root 'posts#index'
+  authenticated do
+    root 'posts#index', as: :authenticated
+  end
+  root 'static_pages#index'
   get '/users/:id/change_avatar', to: 'users#change_avatar', as: 'change_avatar'
   post "/friends/add" => "friends/add"
   post "/friends/reject" => "friends/reject"

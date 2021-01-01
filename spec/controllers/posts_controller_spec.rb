@@ -10,10 +10,11 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "should successfully show the index page if a user is not logged in" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+    # # this needs to be moved to static pages controller spec
+    # it "should successfully show the index page if a user is not logged in" do
+    #   get :index
+    #   expect(response).to have_http_status(:success)
+    # end
 
     it "should display thumbnails sorted by upload date in descending order" do
       get :index
