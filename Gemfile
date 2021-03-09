@@ -91,3 +91,6 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use HasFriendship for friendship management
 gem 'has_friendship'
+
+# Use SendGrid for email
+gem 'sendgrid-ruby'
