@@ -75,7 +75,7 @@ gem 'simple_form'
 gem 'devise'
 
 # Use CarrierWave for image uploading
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 # Use Figaro to hide sensitive information
 gem 'figaro'
