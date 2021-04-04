@@ -1,16 +1,14 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat:400,500,600,700');
 
-// * {
-//   border: 1px solid lightgray;
-// }
-
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
+  --dark-blue: #125688;
+  --dark-green: #128856;
   font-family: 'Montserrat', verdana, arial, helvetica, sans-serif;
   font-size: 16px;
   background-color: #fafafa;
@@ -18,10 +16,10 @@ body {
 }
 
 a {
-  color: #125688;
+  color: var(--dark-blue);
 
   &:hover {
-    color: #488BBD;
+    color: #488bbd;
     text-decoration: none;
   }
 }
@@ -39,41 +37,43 @@ a {
 }
 
 .navbar-light .navbar-brand {
-  color: #125688;
+  color: var(--dark-blue);
 
   &:hover {
-    color: #125688;
+    color: var(--dark-blue);
   }
 }
 
 .navbar-light .navbar-brand.navbar-brand-green {
-  color: #128856;
+  color: var(--dark-green);
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #125688;
+  color: var(--dark-blue);
 
   &:hover {
-    color: #488BBD;
+    color: #488bbd;
     text-decoration: none;
   }
 }
 
-.nav-link, strong, .strong {
+.nav-link,
+strong,
+.strong {
   font-weight: 500;
 }
 
-.custom-toggler.navbar-toggler { 
-  border-color: #125688; 
+.custom-toggler.navbar-toggler {
+  border-color: var(--dark-blue);
   border-width: 2px;
-} 
+}
 
-.custom-toggler .navbar-toggler-icon { 
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(18, 86, 136, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
-} 
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(18, 86, 136, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
 
 .icons {
-  color: #125688;
+  color: var(--dark-blue);
 }
 
 .form-reg {
@@ -90,53 +90,53 @@ a {
 
 .card {
   background-color: #fff;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
 }
 
 .btn-blue {
-  background-color: #125688;
+  background-color: var(--dark-blue);
   color: #fff;
 
   &:hover {
-    color: #5B92BA;
+    color: #5b92ba;
   }
 }
 
 .btn-outline-blue {
-  border: 1px solid #125688;
+  border: 1px solid var(--dark-blue);
   background-color: #fff;
-  color: #125688;
+  color: var(--dark-blue);
 
   &:hover {
-    background-color: #125688;
+    background-color: var(--dark-blue);
     color: #fff;
   }
 }
 
 .btn-green {
-  background-color: #128856;
+  background-color: var(--dark-green);
   color: white;
 
   &:hover {
-    color: #5DBA92;
+    color: #5dba92;
   }
 }
 
 .btn-outline-green {
-  border: 1px solid #128856;
+  border: 1px solid var(--dark-green);
   background-color: #fff;
-  color: #128856;
+  color: var(--dark-green);
 
   &:hover {
-    background-color: #128856;
+    background-color: var(--dark-green);
     color: #fff;
   }
 }
 
 .btn-danger:hover {
-  background-color: #DC3545;
+  background-color: #dc3545;
   color: #e2a4aa;
 }
 
@@ -171,7 +171,7 @@ img {
 }
 
 .tiny-thumb {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 .avatar {
