@@ -1,6 +1,10 @@
 GEM
-  remote: https://rubygems.org/
   remote: https://rails-assets.org/
+  specs:
+    rails-assets-tether (1.4.7)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.0.7.2)
       actionpack (= 5.0.7.2)
@@ -137,7 +141,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.21.0)
     popper_js (1.14.7)
-    puma (3.12.6)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -153,7 +158,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.0.7.2)
       sprockets-rails (>= 2.0.0)
-    rails-assets-tether (1.4.7)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -263,7 +267,7 @@ DEPENDENCIES
   mini_magick
   pg (~> 0.18)
   popper_js (~> 1.14.5)
-  puma (~> 3.0)
+  puma (~> 4.3)
   rails (= 5.0.7.2)
   rails-assets-tether (>= 1.3.3)!
   rspec-rails (~> 3.5)
